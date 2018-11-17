@@ -1,0 +1,1753 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={TERUGSCHRIJVEN},
+            pdfauthor={Harrie Jonkman},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{TERUGSCHRIJVEN}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \subtitle{Over kennis, ontwikkeling en democratie}
+  \author{Harrie Jonkman}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{2018-11-15}
+
+\usepackage{booktabs}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{inleiding}{%
+\chapter*{INLEIDING}\label{inleiding}}
+\addcontentsline{toc}{chapter}{INLEIDING}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
+\CommentTok{# or the development version}
+\CommentTok{# devtools::install_github("rstudio/bookdown")}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{naar-binnen-kijken}{%
+\chapter*{NAAR BINNEN KIJKEN}\label{naar-binnen-kijken}}
+\addcontentsline{toc}{chapter}{NAAR BINNEN KIJKEN}
+
+Amsterdam, juli 2017
+
+Beste David Spiegelhalter,
+
+Jou ken ik als bekende Engelse statisticus. Ik weet dat je een expert
+bent in Bayesiaanse statistiek en waarschijnlijkheidsleer en dat jij het
+medisch onderzoeksteam leidde dat het baanbrekende statistiekprogramma
+WinBUGS ontwikkelde. Met dat ingenieuze programma werk ik wel eens en
+het zit ongelofelijk knap in elkaar. Sinds enige jaren ben je `professor
+Risk' in Cambridge en moet jij er als Winton professor voor zorgen dat
+het publiek het begrip risico beter gaat begrijpen. Twee jaar geleden
+werd jij voor jouw verdiensten op het terrein van statistiek geridderd.
+Jij (Sir David) bent ondertussen de gekozen president van het `Engelse
+Koninklijk Statistisch Genootschap'. Jij hebt jouw sporen verdiend op
+het gebied van de statistiek in Engeland en ver daar buiten en je zou op
+jouw lauweren kunnen rusten, benen op de tafel en een tevreden glimlach.
+Onlangs bracht jij het boek \textbf{`Sex by numbers'} uit. Op de
+voorkant van dit boek wordt een dichte luxaflex geopend zodat we goed
+naar binnen kunnen kijken en jij kijkt met ons mee naar binnen en
+vertelt ons waar we op moeten letten. Maar toen ik het boek uit had
+vroeg ik mij af: waarom houd jij je nu met zo'n specialistisch onderwerp
+bezig, een onderwerp dat ook nog eens zo ver van dagelijkse getallen af
+lijkt te staan?
+
+Na een paar bladzijden is het voor mij duidelijk dat jij ons overtuigend
+laat zien wat de statistiek ons al niet over het seksuele gedrag van
+mensen kan vertellen. Juist bij dit meest persoonlijke onderwerp wil je
+zoveel mogelijk bij de feiten blijven. In het eerste hoofdstuk van het
+boek laat jij zien dat de kwaliteit van het onderzoek naar seksualiteit
+nogal verschillend is. Jij waardeert deze kwaliteit van de cijfers met
+een nul tot en met vier-sterrensysteem. Vier sterren is dan het beste
+onderzoek en onderzoek waarvan we de resultaten kunnen geloven. Denk
+bijvoorbeeld aan enkele officiële statistieken zoals voor iedere 20
+meisjes worden er 21 jongetjes geboren. Drie sterren krijgt onderzoek
+dat redelijkerwijs te geloven is omdat er sprake is van random selectie
+van deelnemers. Jij citeert veel uit het \textbf{British National Survey
+of Sexual Attitudes and Lifestyles (Natsal)} en dat onderzoek krijgt
+deze drie sterren. Twee sterren krijgen de onderzoeken die slechts als
+ruwe schatting moeten worden beschouwd. De bekende Kinsey study, die
+veel plaats krijgt in het boek (wat vooruitstrevend was Kinsey toch),
+krijgt twee sterren omdat hier geen sprake was van random selectie. Dan
+zijn er de onderzoeken die slechts één ster krijgen omdat de
+onderliggende cijfers onbetrouwbaar zijn. Het \textbf{Hite Report},
+bijvoorbeeld, krijgt van jou één ster, alleen al vanwege de lage
+respons-rate van 3\% van een geselecteerde groep. Cijfers met één ster
+kunnen overigens wel een hoge maatschappelijke impact hebben (zoals het
+Hite-report ook laat zien). Tot slot zijn er de onderzoeken met nul
+sterren waarvan de cijfers gewoon verzonnen zijn. Vervolgens laat jij in
+de rest van het boek heel veel cijfers de revue passeren die voor de
+seksuologie van belang zijn. Je kunt het zo gek niet bedenken en jij
+laat daarbij ogenschijnlijk geen bron onbenut. Een willekeurige en
+onsamenhangende greep uit die verschillende onderzoeken: 23\% van
+Britten tussen de 25-34 jaar zegt dat ze de laatste vier weken geen seks
+hebben gehad met het andere geslacht; mensen in Los Angeles hebben
+gemiddeld 130 keer seks ieder jaar; 999 van de 1000 seksactiviteiten met
+het andere geslacht leidt niet tot conceptie; 64\% van de Britse vrouwen
+tussen 45 tot en met 54 jaar had vaginale seks in de laatste vier weken;
+16\% van de Britse vrouwen tussen 25 tot en met 34 jaar had anale seks
+het afgelopen jaar; 1,2 miljoen Britten is het geschatte aantal dat
+zichzelf ziet als homoseksueel/lesbisch of biseksueel; 6\% van de Ierse
+60-plussers zegt dat ze nooit een seksuele partner hebben gehad; 45\%
+van de mannen wenst zichzelf een grotere penis toe; in Engeland wordt
+iedere minuut 5 liter sperma geproduceerd. De cijfers duizelen mij om de
+oren en ik krijg de indruk dat we met elkaar niet stilzitten. Jij laat
+de cijfers ook steeds vanuit hele verschillende perspectieven zien. Zo
+tel je hele verschillende activiteiten, laat jij zien wat we met het
+andere geslacht doen en wat met hetzelfde geslacht, jij laat zien wat we
+met onszelf doen, wat seks inhoudt voor en na het krijgen van baby's en
+ga jij in op de attitudes en verlangens van mensen. Jij hebt niet alleen
+oog voor het plezier maar ook voor de problemen en gaat in op de moderne
+en donkere kanten van seksualiteit. En voortdurend weeg jij dan die
+onderzoeken met jouw sterren systeem.
+
+Jouw boek is een emanciperend boek. Van seksualiteit, dat zoveel mensen
+onzeker kan maken, maak jij een gewoon onderwerp. Zo laat jij zien dat
+twintig jaar geleden mensen nog vijf keer per maand seks met elkaar
+hadden en dat dat tien jaar geleden nog vier keer was. Vandaag de dag
+ligt de i-pad tussen ons in, zijn we veel te druk met ons eigen netwerk
+en lijkt het er soms op dat we liever naar seks kijken dan het zelf
+doen. Gemiddeld hebben mensen nu drie keer per maand seks met elkaar.
+Voor velen is het misschien goed om zicht te krijgen op gemiddelden en
+variaties en wat ze delen met anderen. Door verschillende bronnen en
+verschillende methoden met elkaar te vergelijken kom je volgens jou tot
+de meest mogelijke valide en betrouwbare cijfers. In dat proces ben jij
+bijzonder creatief en hier herken je de meester. Als lezer leerde ik en
+passant ook verschillende statistische aanpakken toe te passen. Zo stel
+jij je bijvoorbeeld de vraag hoe je te weten kunt komen hoeveel
+prostituees er in een stad werken. Daarbij gebruik jij dezelfde
+schattingstechniek die ook wordt toegepast om vast te stellen hoeveel
+vissen er in een vijver zitten. Je vangt er 100, je merkt ze en gooit ze
+terug. Als ze goed gemixt zijn, doe je een tweede vangst van 100 en
+kijkt hoeveel daarvan zijn gemerkt. Op basis van dit percentage kun je
+een goede schatting maken. Door twee verschillende registraties van
+prostituees (twee `vissenvangsten') met elkaar te vergelijken, die van
+een gezondheidsdienst en die van de politie, en het aantal dezelfde
+namen in beide registraties te tellen, kun je een schatting maken van
+hoeveel prostituees er in een stad werken. Slim. Jij bent en blijft, ook
+in dit boek, een statisticus die de cijfers laat zien en niet zozeer die
+interpreteert of de gegevens koppelt naar moraal, onderliggende
+mechanismen of hypothesen. In het begin vond ik het boek bijzonder
+boeiend, maar op een gegeven moment werden al die cijfers mij toch wat
+te veel. Aan het einde van het boek was ik dan toch weer blij dat ik je
+boek heb uitgelezen, ook omdat jij de zaken zo goed op rij zet en je er
+veel van leert. \textbf{`Sex by numbers'} is bovendien prettig
+geschreven en met veel humor. Het boek is ook nog eens zeer up to date.
+Jij gaat in op tegenwoordige zaken als Tinder, Vijftig Tinten Grijs,
+Sexting en jij gebruikt de DSM5. Jouw boek is vooral op Engeland en
+Amerika gericht. Jij gaat regelmatig in op het Engelse Natsal-onderzoek
+waar jij veel waardering voor hebt. Maar de Engelse (en Amerikaanse
+situatie) is niet altijd representatief voor Nederland of andere delen
+van de wereld. Daar zit een beperking. \textbf{`Sex by numbers'} is
+interessant voor onderzoekers en een must voor mensen die onderwijs
+geven of de media te woord staan in de breedte van de seksuologie. Jij
+laat ons op een gepaste manier naar binnen kijken. Na het lezen van jouw
+boek kijk ik net wat anders om mij heen.
+
+Dank je wel,
+
+Grote groet, -Harrie
+
+Spiegelhalter, D. (2015). \textbf{Sex by numbers. What statistics can
+tell us about sexual behaviour}. London: Profile Books, 360 pag.,
+€22,95.
+
+\hypertarget{grote-uitvindingen-en-het-leven-in-een-speciale-eeuw}{%
+\chapter*{GROTE UITVINDINGEN EN HET LEVEN IN EEN SPECIALE
+EEUW}\label{grote-uitvindingen-en-het-leven-in-een-speciale-eeuw}}
+\addcontentsline{toc}{chapter}{GROTE UITVINDINGEN EN HET LEVEN IN EEN
+SPECIALE EEUW}
+
+Amsterdam, augustus 2017
+
+Beste Robert Gordon,
+
+In 1870 was de levensstandaard van de gemiddelde Amerikaan laag. Niet
+zoals in de middeleeuwen, maar toch. Die was lager dan die van de Brit
+en weer hoger dan de Duitse levensstandaard toen. Het mensenleven was
+kort (gemiddeld 45 jaar) en de kindersterfte bijzonder hoog. Mensen
+woonden met grote gezinnen in kleine huizen, eigen groenten werden
+verbouwd en tot eten gemaakt. Mensen consumeerden zo'n 3,5 euro per week
+en dat ging bijna helemaal op aan eten, kleren en onderdak. 75 procent
+van de mensen woonde enkele jaren na de Amerikaanse burgeroorlog nog op
+het platteland en de samenleving was agrarisch opgebouwd. Indien er
+sprake was van onderwijs was dat vaak niet meer dan de lagere school. De
+huizen waren niet met elkaar verbonden: er waren geen sanitaire
+voorzieningen en iedereen verwarmde het eigen huis op zijn eigen wijze.
+Men vervoerde zich met het paard en het leven van gezinnen was vaak
+afhankelijk van dat paard. 's Avonds was het donker op straat. De
+gezondheidszorg was vooral homeopathisch van aard en op kruiden gericht.
+Maar zo vanaf 1870 gebeurt er veel in Amerika en begint een speciale
+eeuw die het leven van mensen totaal gaat veranderen. De levensstandaard
+gaat als nooit tevoren omhoog en het karakter van de samenleving past
+zich aan. In jouw formidabele (iets anders kan ik er niet tegen jou over
+zeggen)\textbf{`The Rise and Fall of American Growth'} laat jij zien hoe
+met de vele grote uitvindingen en innovaties dat leven in honderd jaar
+totaal verandert. Nooit eerder was er zo'n economische ontwikkeling en
+het is volgens jou ook maar zeer de vraag of dit ooit nog weer zal
+gebeuren. Jij bent macro-econoom en economisch historicus en werkt aan
+de Northwestern University en de ideale persoon om deze geschiedenis te
+schrijven. Jij ziet de sterke economische groei als een eenmalige en
+unieke gebeurtenis die aan het einde van de negentiende eeuw start,
+vooral zichtbaar wordt in de periode 1920-1970 en die daarna weer
+afvlakt.
+
+Maar waarom is die eeuw zo speciaal? Volgens jou vinden er vanaf 1870 op
+heel veel terreinen tegelijkertijd veranderingen plaats. Steden worden
+met spoorlijnen met elkaar verbonden. Door de telegraaf kunnen kranten
+op de dag zelf over nationale en internationale gebeurtenissen
+rapporteren. Steden en huizen worden van elektriciteit voorzien en
+worden ook op andere wijzen aan elkaar gekoppeld via gas, telefoon,
+riolering en lopend water; het begin van de netwerksamenleving. Het
+eetpatroon wordt aangepast en de voedselproductie verandert. Kleren
+worden minder in huis gemaakt maar meer in fabrieken en vervolgens in
+winkels verkocht. Het paard verdwijnt langzaam uit het straatbeeld en
+maakt plaats voor motorische voertuigen. Het plezier en de verbeelding
+veranderen met de komst van de fotografie, de muziek, de radio en de
+film. Mensen gaan korter werken en maken bij de uitvoering van zwaar
+werk gebruik van hulpmiddelen. Steeds meer mensen gaan in een stad wonen
+en daar zijn in 1940 elektriciteit en water- en rioolverbindingen al
+heel gewoon en bijna de helft van de huishoudens heeft daar dan al een
+wasmachine en koelkast. De huizen worden kleiner en efficiënter
+ingericht, krijgen een douche en binnen een wc, worden centraal verwarmd
+en voorzien van elektrische apparaten. De bungalow doet zijn intrede.
+Het transport en het vervoer gaat sneller en sneller. De auto komt er en
+wegen worden aangelegd. Alles rondom informatie, communicatie en vermaak
+verandert in deze periode. Het postsysteem wordt opgezet en
+telefoonlijnen aangelegd. De levensverwachting van mensen stijgt snel,
+zeker omdat het percentage kindersterfte sterk afneemt en de kennis over
+gezondheid toeneemt. De invloed van voedsel, schoon water, riolering en
+dergelijke op gezondheid wordt blootgelegd en het gezondheidssysteem met
+ziekenhuizen en technologieën verandert. Bacteriële ziektes worden
+aangepakt. Kinderarbeid neemt af en de arbeidsomstandigheden verbeteren.
+Mensen kunnen hypotheken krijgen, kunnen zich tegen risico's verzekeren
+en er komt sociale wetgeving. Het leven van 1870 kunnen we ons nu
+nauwelijks nog echt goed voorstellen. Maar het dagelijks leven van veel
+mensen in 1940 lijkt voor een groot deel op het leven zoals wij dat nu
+nog kennen. Jij maakt duidelijk dat kwaliteit van het leven misschien
+nog wel meer toeneemt dan de economische opbrengst. Jij maakt ook
+duidelijk dat Amerika internationaal voorop loopt waar het ontdekkingen,
+innovaties en vooruitgang na 1870 betreft. In de periode na de WOII gaat
+alles in een economische stroomversnelling. Niet iedereen kon in het
+eerste deel van de speciale eeuw aan alle ontwikkelingen meedoen; zeker
+niet mensen in het landelijk zuiden, de armere mensen en grote delen van
+de zwarte bevolking. De economische ontwikkeling zal zich verder
+verbreden en er komen ook weer nieuwe ontwikkelingen bij waardoor alles
+nog weer wat sneller gaat. De modernisering van Amerika wordt verder
+voortgedreven door de auto die op grote schaal gebruikt gaat worden. Dan
+komen de airconditioning, de snelwegen, het fastfood en de antibiotica.
+Het commerciële luchtverkeer komt op gang en, bovenal, komt de televisie
+in iedere huiskamer te staan, halverwege de jaren zeventig ook nog in
+kleur. Na 1970 stagneert de groei en ontwikkelingen vinden al lang niet
+meer overal plaats. De publieke gezondheidzorg (waar zoveel
+gezondheidswinst mee gemaakt is) maakt na 1970 plaats voor meer
+specialistische gezondheidszorg, waarvan de kosten enorm zullen
+toenemen. Grote veranderingen vinden alleen plaats op het terrein van
+informatie, communicatie en vermaak. De digitale media personaliseren en
+fragmenteren dan alles ook nog eens vanaf de jaren negentig met de
+I-pod, de computer, het internet en de diverse websites. De sociale
+media verbinden mensen nog verder met elkaar. Rond het jaar 2000 is er
+dan nog een kleine economische opleving te bemerken, maar die is
+tijdelijk van aard.
+
+Waarom, vraag jij je af, neemt het succes na de zeventiger jaren dan af?
+De innovaties gaan dan nog wel verder door maar vinden, misschien wel
+anders dan we vaak denken, op beperktere gebieden plaats. Dus wel op het
+gebied van informatie, communicatie en vermaak maar veel minder op het
+gebied van voedsel, kleding, elektronische apparaten, huisvesting,
+transport, gezondheid, onderwijs en arbeidsomstandigheden. Dan mogen
+bijvoorbeeld al die ICT en 3D-ontwikkelaars van tegenwoordig nog wel
+optimistisch aankijken tegen de toekomst, jijzelf bent daar veel
+gereserveerder over dan die techno-optimisten. Allicht dat jouw
+pessimisme hier doorschiet en dat je deze ontwikkelingen onderschat.
+Jouw verdienste zit er vooral in dat jij zichtbaar maakt dat innovatieve
+kracht in de breedte zit. Die brede blik verliezen we tegenwoordig nogal
+eens uit het oog. Maar hoe belangrijk innovatie voor jou ook is, er zijn
+tegenwoordig andere maatschappelijke ontwikkelingen die volgens jou ook
+een negatieve invloed hebben op economische groei. Zo heeft die huidige
+samenleving te maken met een sterke toename van sociale en economische
+ongelijkheid, ook binnen het onderwijs waar bovendien schooluitval
+toeneemt. Dan zijn er nog demografische ontwikkelingen waar we de
+komende tijd mee te maken hebben en die er toe leiden dat de
+arbeidsparticipatie verder zal afnemen. In Amerika neemt de staatsschuld
+steeds verder toe. En dan heb je nog de belabberde sociale situatie waar
+bepaalde groepen aan de onderkant van de Amerikaanse samenleving mee te
+maken hebben. Naast de verenging van de innovatieve kracht zorgen deze
+zaken voor tegenwind in de Amerikaanse samenleving en tezamen zorgen ze
+ervoor dat de economische groei afneemt. Jij doet hier nog wel een
+aantal concrete voorstellen maar hier ligt niet de kracht van jouw boek.
+Het boek lezen was voor mij een groot genot, waarschijnlijk ook omdat ik
+verschillende veranderingen zelf heb mee gemaakt. Daar ben ik oud genoeg
+voor. Ik heb de melk- en schillenboer nog met het paard zien rondrijden,
+bij mijn oma moest ik nog buiten naar de wc en als jongetje moest ik in
+de winter een paar keer per week kolen scheppen. Ik heb de tv en de
+kleuren-tv, de centrale verwarming en de wasmachine zien komen. Begin
+jaren tachtig zag ik de computer op het secretariaat binnen komen en
+volg allerlei digitale ontwikkelingen van tegenwoordig. Jij maakt mij
+duidelijk dat economische indicatoren zoals het bruto nationaal product
+te beperkt zijn om economische ontwikkelingen te begrijpen, laat staan
+de kwaliteit van leven en de levensstandaard vast te stellen en te
+vergelijken. Jij laat ons, lezers, helemaal om ons heen kijken en maakt
+ons vooral duidelijk dat om te zien waar je staat je moet weten waar je
+vandaan komt.
+
+Dank je wel.
+
+Grote groet, -Harrie
+
+Gordon, R.J. (2016). \textbf{The rise and fall of American growth. The
+U.S. standard of living since the civil war}. Princeton and Oxford:
+Princeton University Press, 762 pag., €47,95.
+
+\hypertarget{de-wereld-in-een-zandkorrel}{%
+\chapter*{DE WERELD IN EEN
+ZANDKORREL}\label{de-wereld-in-een-zandkorrel}}
+\addcontentsline{toc}{chapter}{DE WERELD IN EEN ZANDKORREL}
+
+Amsterdam, september 2016
+
+Beste Kritina Rizga,
+
+In \emph{`De grote vlucht inwaarts. Essays over cultuur in een
+onoverzichtelijke cultuur'} onderstreept de Groningse cultuurfilosoof
+Thijs Lijster nog eens wat we allemaal wel weten en voelen: de wereld is
+complex en onoverzichtelijk geworden. Over heel weinig hebben we
+controle en allicht daarom sluiten we ons af van die grote en boze
+buitenwereld die we als een natuurgegeven zijn gaan beschouwen. Het
+enige wat we kunnen doen is naar binnen keren en vasthouden aan wat we
+nog wel in eigen hand denken te hebben: de gezellige huiskamer, onze
+spirituele huishouding en de lokale tradities en gewoonten. De wereld is
+verinnerlijkt en de grote slachtoffers van deze beweging zijn de sociale
+kritiek en de geschiedenis. Vergezichten en het geheel zijn in de ban
+gedaan en hebben plaats gemaakt voor verscheidenheid en verschillen. Als
+je een beetje filosoof van naam was de laatste decennia kondigde je wel
+ergens het einde van aan: Foucault kondigde het einde van de mens aan,
+Barthes van de auteur, Daniel Bell van de ideologie, Fukuyama van de
+geschiedenis en Lyotard van het grote verhaal. Niets mocht en kon meer
+allesomvattend worden beschreven. Maar een ander samenhangend licht
+werpen op zaken was daarmee ook verdwenen en dat laat ook een leegte
+achter. Daarom pleit Lijster in het verlengde van René Boomkens voor
+sterke verhalen die dan, misschien niet meer alles en totaal omvattend
+zijn, maar die wel degelijk eenheid aanbrengen in dat wat voor anderen
+nog onoverzichtelijk en onsamenhangend is. Eigenlijk gaat het volgens
+Lijster erom de wereld in een zandkorrel te zien, zoals William Blake
+dat ooit zo mooi omschreef. Tegenover het vooruitgangsgeloof en het
+pessimisme plaatst hij sterke verhalen; verhalen die kritisch zijn
+tegenover het bestaande en mensen uitdagen ook zo'n houding aan te
+nemen, die het denkbeeldige naar voren halen en waarbij schrijvers niet
+bang zijn voor de consequenties en conflicten met het bestaande.
+
+Aan sterke verhalen moest ik denken toen ik jouw nieuwe boek las:
+\emph{`Mission high. One school, how experts tried to fail it, and the
+students and teachers who made it triumph'}. In dat boek stel je de op
+zich simpele vraag waarom het voor het rijkste en machtigste land van de
+wereld (jouw Amerika) zo moeilijk is om goede scholen te bouwen in
+iedere buurt? Je vraagt je af waarom jouw vrienden hun kinderen naar
+scholen aan buitenkant van San Fransico sturen of, zelfs, om die reden
+verhuizen. Is het niet mogelijk om binnen enkele maanden op die simpele
+vraag een antwoord te vinden. Je bent journalist en de hoofdredacteur
+van het tijdschrift waarvoor je werkt, adviseert jou om een school te
+zoeken waar jij je kunt verdiepen in de levens van studenten en
+docenten. Het kost jouw maanden om zo'n school te vinden en uiteindelijk
+vind je zo'n school en begin je in 2009 met jouw onderzoek. Maar die
+enkele maanden worden uiteindelijk toch een dikke vier jaar. De Mission
+High-school is de oudste openbare voortgezet onderwijs school van San
+Fransico, in 1890 opgezet. Er hebben bekende personen opgezeten zoals
+Maya Angelou en Carlos Santana. De school maakt in haar bestaan de hele
+Amerikaanse onderwijsgeschiedenis mee. In de beginjaren natuurlijk de
+meer kindgerichte benadering waar John Dewey zich hard voor maakte. Dan
+vanaf eind jaren vijftig wordt er voorzichtig een begin gemaakt met de
+afbraak van de segregatie toen duidelijk werd dat de samenleving meer
+talenten nodig had tot en met de toets- en afrekencultuur die er kwam
+vanuit de hoop dat de toetsen van taal en rekenen zicht geven op de
+toekomst van kinderen. In het jaar dat jij jouw onderzoek afrondt (2014)
+zitten er nog 950 studenten op, met name zwarte en Spaanstalige
+leerlingen. 75\% van deze leerlingen leeft in armoede en voor slechts
+38\% van hen is Engels de eerste taal. Wanneer je met jouw onderzoek
+begint scoort de Mission High school bijzonder laag op de officiële
+lijstjes en behoort het tot de 5\% laagste scorende scholen van Amerika.
+Daarom staat de school onder grote maatschappelijke druk, zoals zoveel
+van deze Amerikaanse scholen: moet de school gesloten worden, de
+directeur worden vervangen of de helft van het personeel worden
+ontslagen? Maar er zijn andere lijstje waaruit een heel ander verhaal
+spreekt: 84\% van de leerlingen wordt op vervolgopleidingen aangenomen,
+89\% van de leerlingen vindt deze school goed, het slagingspercentage
+van het zwarte deel van de studenten is 20\% hoger en van hen stroomt
+14\% meer door. Het niveau, het slagings- en aanwezigheidspercentages
+van leerlingen zijn gestegen en het schorsingspercentage nam sterk af.
+Jij laat in jouw boek zien hoe studenten en docenten het dagelijkse
+leven op zo'n school vormgeven. Daarvoor portretteert je de studente
+Maria die het geweld in El Salvador ontvlucht en op de school langzaam
+vertrouwen krijgt in zichzelf, leert schrijven en zich op school thuis
+gaat voelen; de Chinese student George die naar Amerika komt om zijn
+Engels te verbeteren en om met verschillen te leren omgaan en er dan
+achter komt dat dat allemaal niet zo makkelijk is maar toch leert om
+vragen te stellen, mee te doen aan discussies en werk durft te laten
+zien aan medeleerlingen; Pablo uit Guatemala die er achter komt dat hij
+homo is, daar een tijd mee zit maar op deze school een omgeving vindt
+die hem ruimte en mogelijkheden biedt dit een plaats te geven; de
+Afrikaans Amerikaanse Jesmyn die door haar moeder wordt opgevoed in de
+armste en gewelddadigste buurt van San Fransico en zich weet op te
+werken tot leerkracht, maar voor wie het leven uiteindelijk te veel is.
+Maar in jouw boek komt ook een groep docenten aan het woord waaronder Mr
+Roth, de oude activist die geschiedenis geeft en die er in slaagt om het
+onderwijs op school te verbinden met waar kinderen vandaan komen;
+Mr.~Hsu, de wiskunde leraar, die kinderen niet alleen leert rekenen maar
+hen ook verbanden, patronen en strategieën leert zien; en Ms McKansey,
+de zwarte lerares die de leerlingen leert schrijven en die haar eigen
+passie overbrengt en dagelijks laat zien dat hetzelfde doel heel
+verschillend kan worden bereikt. Rizga portretteert ook Mr.~Guthartez,
+de directeur van de school die er in slaagt om een positieve
+schoolcultuur te creëren en laat zien dat stabiliteit en continuïteit zo
+belangrijk zijn voor deze kinderen met deze ingewikkelde achtergronden.
+
+Volgens jou kan de democratie en de economie niet functioneren zonder
+openbare scholen die toegankelijk en voor iedereen goed zijn. Maar het
+is duidelijk dat de scholen niet goed zijn wanneer je zwart of
+spaanstalig bent. Amerika moet hier beter mee om leren gaan en deze
+talenten weten aan te spreken. Maar wat kan er dan volgens jou gedaan
+worden? Bij goed onderwijs gaat het om enkele zaken: kritisch denken,
+intrinsieke motivatie, veerkracht, zelfmanagement, vindingrijkheid en
+sociale vaardigheden. Die zijn niet met statistische maten en computer
+algoritmen vast te pakken. Lang dacht jij dat goed onderwijs zich moet
+baseren op wetenschappelijke inzichten, op wat er in bepaalde landen
+gebeurt en dat het meest te leren is van hoogscorende scholen met
+vergelijkbare achtergronden. Maar nu kijk jij er anders tegen aan en
+vind je dat de gestandaardiseerde wijze van toetsen leidt tot eenvormige
+instructie en nauwelijks vast kan stellen wat individuele kinderen
+kunnen en wat hun motivaties zijn. Goede docenten weten wat individuele
+kinderen nodig hebben, wat hen interesseert en welke uitdagingen ze
+nodig hebben. Scholen moeten daarom volgens jou op zoek gaan naar nieuwe
+ideeën en leren van anderen. Bruikbare kennis van buiten moet worden
+getoetst in het dagelijkse proces met individuele en collectieve
+elementen. De grote jongens en snelle meisjes van Amerika hebben grootse
+plannen met de toekomst van het Amerikaanse onderwijs. Zij hebben het
+hoogste woord in de discussie. Maar in dat land, zo stel je subtiel
+vast, gaan er iedere dag zo'n 50 miljoen studenten naar school onder
+begeleiding van 3 miljoen leraren. Hun stemmen hoor je nauwelijks. Jij
+hoopt dat hun inzichten en expertise onze verbeelding zullen versterken
+en ons laten nadenken over wat die kwaliteit van onderwijs precies
+inhoudt. Jouw verhaal over de Mission High is een sterk verhaal. Jouw
+verhaal over de Mission High-school is zo'n zandkorrel waar een hele
+wereld in is te kennen.
+
+Dank je wel,
+
+Grote groet, -Harrie
+
+Rizga, K. (2015). \emph{Mission High. One school, how experts tried to
+fail it, and the students and teachers who made it triumph.} New York:
+Nation Books. 320 pagina's, Eur: 24,50
+
+\hypertarget{kansen-en-klassen}{%
+\chapter*{KANSEN EN KLASSEN}\label{kansen-en-klassen}}
+\addcontentsline{toc}{chapter}{KANSEN EN KLASSEN}
+
+Amsterdam, oktober 2017
+
+Beste Paul de Beer, Maisha van Pinxteren en anderen,
+
+Michael Young was een bekend onderwijssocioloog en sociaal entrepeneur.
+Hij was nog erg jong toen hij vlak na de Tweede Wereldoorlog
+\emph{`Facing the future'} schreef, het politieke programma waarmee
+Labour in Engeland de Conservatieven onder leiding van Winston Churchill
+zou verslaan. Het vormde de politieke basis voor dat beroemde kabinet
+dat onder leiding van Attlee de Engelse verzorgingsstaat zou opbouwen en
+waarmee het ook andere landen inspireerde. Michael Young zou
+verschillende boeken schrijven en werkte mee aan de opbouw van talloze
+Engelse en internationale organisaties waaronder bijvoorbeeld zijn eigen
+Centre for Community Studies, de Engelse Consumentenbond en de Open
+University. Maar bekend werd hij vooral met zijn boek \emph{`The Rise of
+the Meritocracy'} uit 1958. Het is een satirisch boek waarin hij vanuit
+het jaar 2033 en het perspectief van een meritocratische apostel
+terugkijkt op de hele periode vanaf 1870. In die periode worden de
+kansen niet meer zozeer zoals daarvoor verdeeld op basis van afkomst
+maar op basis van verdienste. Verschillen tussen mensen worden op basis
+van het meritocratisch principe vastgesteld (`je verdient het want jij
+kunt het en hebt er hard voor gewerkt'). Het onderwijs is er vooral voor
+de kinderen die het verdienen. Van de kinderen die het niet goed kunnen
+of er met de pet naar gooien wordt verwacht dat ze het onderwijs zo snel
+mogelijk verlaten. De wetenschap ondersteunt bij het soepel verlopen van
+dat selectieprincipe en weet de verschillen op steeds jongere leeftijd
+te detecteren. De competitie ligt er op een zo'n jong mogelijk moment en
+daarna zijn de kaarten geschut. De sociale positie die iemand inneemt
+wordt gelegitimeerd door intelligentie en inspanning. Maar met de nieuwe
+verdeling van de kansen groeien klassen steeds verder uit elkaar en de
+sociale situatie eindigt dan in 2033 in een revolte waarin de verteller,
+zo lezen we in een voetnoot, wordt vermoord.
+
+Ook in Nederland wordt na de Tweede Wereldoorlog expliciet afstand
+genomen van het op afkomst gebaseerde onderwijssysteem en gaat het meer
+en meer om de talenten van individuen. Anders dan in Michael Youngs
+dystopie wordt het meritocratisch principe, zoals in vele landen, een
+maatschappelijk ideaal. Over dat principe en die Nederlandse samenleving
+schreven jullie (Paul, Maisha en de veertien anderen) een bijzonder
+interessant boek: `Meritocratie. Op weg naar een nieuwe
+klassensamenleving?'. Het meritocratisch principe kan als een doelmatig
+principe worden gezien omdat zo iedereen op de plek terecht komt die bij
+hem of haar past en de samenleving daarmee de mensen krijgt die het op
+verschillende posities nodig heeft. Het is ook een rechtvaardig principe
+omdat iedereen gelijke kansen heeft om zijn of haar talenten te
+ontwikkelen. Kunnen we, zo vragen jullie je af, zestig jaar later ook
+zeggen dat de kansen in Nederland eerlijker verdeeld worden en de
+sociale afkomst (maar ook etniciteit en sekse) daarbij niet meer leidend
+is? Verdienste is intelligentie en inspanning en is met onderzoek niet
+makkelijk `te pakken'. Dat kan alleen op basis van het opleidingsniveau
+van jongeren en hoe dat de onderwijsloopbaan en het maatschappelijk
+succes vervolgens beïnvloedt. Dat is waar jullie naar kijken. De
+maatschappij stond zelf natuurlijk ook niet stil. Zo was er in deze
+jaren sprake van expansie van het onderwijs, upgrading van de
+beroepenstructuur en emancipatie van de vrouw die op zich ook zelf weer
+interacteren met het meritocratisch principe. Jullie kijken aan de ene
+kant naar de rol van het onderwijs en de opvoeding en stellen je de
+vraag of iemands persoonlijke capaciteiten veelmeer de toekomst zijn
+gaan bepalen dan sociale afkomst. Hier laten jullie zien dat jongeren
+steeds meer aan het onderwijs deelnemen en dat onderwijs en opleiding
+voor het verwerven van een maatschappelijke positie belangrijk zijn
+geworden. Dat is echter al decennia lang het geval. Wel is het zo dat
+steeds meer jongeren aan het onderwijs deelnemen en dat de waarde van
+het diploma is afgenomen. Hier valt verder op dat het niet zozeer meer
+de sociaal economische positie van vader is die de onderwijsloopbaan
+bepaalt maar meer het opleidingsniveau van de ouders. Die ouders spelen
+met hun hulpbronnen en culturele capaciteiten over langere tijd een
+ondersteunende en constante rol hierbij. Aan de andere kant kijken
+jullie naar de vraag of de maatschappelijke positie ook daadwerkelijk
+wordt bepaald door de individuele verdienste. Je mag verwachten dat in
+onze moderne samenleving het opleidingsniveau belangrijker is geworden
+voor de positie op de arbeidsmarkt. Dat kunnen jullie niet overduidelijk
+aantonen. Veel hoger opgeleiden werken onder het niveau. Wel is het
+risico op werkloosheid voor lager opgeleiden duidelijk groter. Daarnaast
+zijn er andere factoren die de positie op de arbeidsmarkt bepalen, zoals
+de samenstelling van het huishouden en de etnische achtergronden.
+Alleenstaanden, alleenstaande ouders en niet-westerse allochtonen lopen
+een hoger risico op werkloosheid, hebben een lager onderwijsniveau en
+werken vaker in onzekere, flexibele arbeidscontracten. Bij de verdeling
+van kansen lijken niet-cognitieve vaardigheden (sociale en
+communicatieve vaardigheden) een rol te spelen. De sociale achtergrond
+van de ouders lijkt, naast het opleidingsniveau, nog een steeds een
+eigen en constante rol te spelen in de uiteindelijke maatschappelijke
+positie van mensen. Enkele andere zaken vallen in die tegenwoordige
+samenleving ook nog op. In het algemeen wordt het meritocratisch
+principe door mensen als rechtvaardig ervaren. In het politieke domein
+(zoals Eerste en Tweede Kamer, maar ook in gemeenteraden en onder
+wethouders)zitten tegenwoordig personen die hoger zijn opgeleid. Jullie
+stellen vast dat de politiek elite uit de hoge lagen is vervangen door
+de universitaire geschoolde middenklasse en dat er sprake is van een
+diplomademocratie. Aan de onderkant van de meritocratische samenleving,
+waar de verliezers zitten zoals de langdurige werklozen, wordt het
+meritocratisch principe ook onderschreven. Jullie stellen het systeem
+niet ter discussie maar zoeken een excuus waarom het hen niet is gelukt.
+
+Aan het einde van het boek vragen jullie je af wat dit betekent en wat
+het beleid zou kunnen doen? Allereerst zouden, volgens jullie, de
+kinderen met sociale achterstanden vanaf jonge leeftijd binnen schoolse
+en buitenschoolse omgevingen op materieel, cultureel en sociaal terrein
+moeten worden ondersteund. Daar waar kinderen het niet van huis uit mee
+krijgen, zou er van hogerhand steun moeten worden geboden. Keuze voor
+het vervolgonderwijs zou weer meer naar wat latere leeftijd moeten
+worden verplaatst omdat sommige kinderen gewoon meer tijd nodig hebben.
+Niet-cognitieve vaardigheden, zeker voor kinderen uit zwakkere sociale
+milieus, verdienen meer aandacht. Op de arbeidsmarkt verdient levenslang
+leren aandacht evenals het aanleren van niet-cognitieve vaardigheden.
+Misschien, zo schrijven jullie, is het onvermijdelijk dat verschillen
+samenhangen met het opleidingsniveau van kinderen. Maar die verschillen
+(met name belonings- en inkomensverschillen) hoeven dan weer niet zo
+groot te zijn. Die verschillen zijn ook op de arbeidsmarkt te bemerken
+zoals kans op werk en de onzekerheid van werk. Op bepaalde momenten
+moeten we ook weer niet te sterk de nadruk leggen op opleiding omdat
+bepaalde groepen mensen niet aan de gestelde eisen kunnen voldoen. En
+toen was ik weer terug bij Young zelf. Kort voor zijn dood in 2002 en
+tijdens de hoogtijdagen van Tony Blair bracht Michael Young in The
+Guardian in zijn artikel \emph{`Down with Meritocracy'} nogmaals in
+herinnering dat zijn boek toch echt als satire en waarschuwing was
+bedoeld en niet zozeer als ideaal. Hij zegt in dat artikel dat veel van
+het boek meer dan veertig jaren na dato waren uitgekomen: de onderklasse
+staat met lege handen en zonder perspectief en de leiders zijn rijker en
+rijker geworden en lijken verder af te staan van de mensen waarvoor ze
+zeggen op te komen. Bij Michael Young gaat het om het tegengaan van
+ongelijkheid, versterken van lokaal beleid, betrekken van mensen bij de
+politiek en het verheffen van alle jongeren. Het wij is bij hem veel
+belangrijker dan het ik. Daar waar Young vooral kritisch was over de
+meritocratie, leggen jullie aan het einde van het boek de nadruk op het
+versterken van de meritocratie. De kritiek heeft bij jullie aandacht
+maar die kritiek had veel meer expliciete aandacht verdient. Bij het
+lezen van jullie lezenswaardig boek is het goed het werk in herinnering
+te roepen van deze sociale gigant: Michael Young, Lord of Dartington.
+
+Beer, P. de \& Pinxteren, M. van. (red., 2016). \emph{Meritocratie. Op
+weg naar een nieuwe klassensamenleving?} Amsterdam: Amsterdam University
+Press, 253 pag., €29,95.
+
+\hypertarget{het-belang-van-misschien-en-ik-zou-denken-denken}{%
+\chapter*{HET BELANG VAN MISSCHIEN EN IK ZOU DENKEN
+denken}\label{het-belang-van-misschien-en-ik-zou-denken-denken}}
+\addcontentsline{toc}{chapter}{HET BELANG VAN MISSCHIEN EN IK ZOU DENKEN
+denken}
+
+Amsterdam, november 2017
+
+Beste Richard Sennett,
+
+De solidariteit met mensen die hetzelfde zijn lijkt verder toe te nemen
+en de verschillen met mensen die anders zijn lijken alsmaar toe te
+nemen. Mensen in de westerse wereld trekken zich op eilanden terug,
+lijken steeds meer moeite te hebben om op gelijke voet te komen met de
+ander en steeds meer is er sprake van wij tegenover zij. In jouw laatste
+boek, dat zojuist in een Nederlandse vertaling verscheen onder de titel
+\emph{`Samen, een pleidooi voor samenwerken en solidariteit'}, ben je
+heel duidelijk: in onze complexe samenleving kunnen we het ons niet
+veroorloven de ander steeds meer uit de weg gaan. Problemen die dit
+alles namelijk oplevert op het schoolplein, op de straat en in de media
+zijn zo groot dat we (weer) moeten leren om te gaan met die ander;
+wellevendheid zie jij als een maatschappelijke opdracht. Onze wereld is
+overvol met materiële zaken en op dat gebied maken we grootse
+ontwikkelingen door. De ontwikkelingen op het immateriële terrein,
+echter, blijven daar ver bij achter. We moeten beter leren omgaan met
+mensen die we misschien niet zo aardig vinden, die we niet helemaal
+begrijpen en die gewoon net iets anders zijn dan wijzelf. Grote
+praktische problemen waar we vandaag de dag tegenaan lopen brachten jou
+ertoe om een trilogie te schrijven over de ervaringen van het
+alledaagse. Jij omschrijft het zelf als een homo-faber project waarin je
+ingaat op vaardigheden die we nodig hebben om het beter met elkaar te
+rooien en weer meester worden over onszelf. Die trilogie begon met jouw
+studie `De Ambachtsman. De mens als maker', een cultuurgeschiedenis over
+het werk. Daarin houdt jij een pleidooi houdt om werk goed te doen
+vanwege het werk en niet vanwege onszelf. De trilogie sluit jij straks
+af met een derde boek waaraan jij op dit moment werkt. Dat boek zal gaan
+over hoe steden zijn gebouwd en hoe met stedenbouw het leven van mensen
+is te verbeteren. Maar nu ligt jouw tweede deel hiervan voor, `Samen,
+een pleidooi voor samenwerken en solidariteit', dat het vermogen van
+mensen om samen te werken wil vergroten.
+
+Dit boek bestaat uit drie grote delen. In het eerste deel laat je zien
+hoe samenwerking vorm is gegeven in met name de linkse politiek. In
+Europa wilden de sterke Duitse vakbond, Kautsky, Lenin en alles wat
+daarmee was verbonden solidariteit vooral van boven af organiseren en
+alles was daarbij op het Grote Gelijk gericht. Het top-down denken
+leidde er op een gegeven moment toe dat de top zich langzaamaan steeds
+meer vervreemde van de basis. Hiertegenover is er de Amerikaanse
+bottom-up benadering met nadruk op de gemeenschap en de
+burgersamenleving. Hierbij denk je aan vrijwilligersorganisaties die in
+arme, stedelijke gebieden arbeiders onderwijs en perspectief bieden en
+aan opbouwwerkers die apathische armen in beweging proberen te krijgen
+en gemeenschapsbanden weten te verbeteren. Het gaat jou hier om
+bewegingen en personen die voortbouwden op het werk van Europese sociale
+hervormers als Robert Owen in Wales en Charles Fourier in Frankrijk.
+Voor jou is het duidelijk dat wij als soort alleen niet kunnen
+overleven. Wij zijn sociale dieren en daarom moeten we samenwerken, ook
+omdat de omgeving waarin we leven steeds verandert. Samenwerken doen we
+door geven en nemen en vergelijken en tegen elkaar afzetten. Zo geven
+wij onze ervaringen op bepaalde manieren vorm. Rituelen spelen mee bij
+het omgaan met verschillen. Maar in de moderne tijd vinden er
+veranderingen plaats in de cultuur, het werk en het dagelijkse leven
+waardoor samenwerking minder open, minder dialogisch is geworden en
+daarmee problematischer. In het tweede deel laat je dan zien hoe
+samenwerking tegenwoordig wordt verzwakt. Allereerst is er de
+ondermijnende invloed van ongelijkheid die kinderen die opgroeien
+asocialer maakt. Gevoelens van inferioriteit worden geïnternaliseerd en
+de ongelijkheid laat bepaalde groepen denken dat ze het toch niet ver
+zullen schoppen op school en de samenleving. Dan zijn er ook de sociale
+relaties op het werk die onze houding verder verzuren. Informele
+relaties op het werk waren lange tijd sterk. Dat kwam omdat de arbeiders
+respect hadden voor nette werkgevers en de werkgevers op hun beurt voor
+betrouwbare werknemers. Problemen werden onderling besproken en als het
+erop aan kwam werden tijdelijke en acute problemen aangepakt. Het werk
+werd zo van drie kanten sociaal ondersteund en gaf vorm aan
+gestandaardiseerde of informele wellevendheid. Dit werk veranderde de
+laatste decennia in ons `durfkapitalisme' en onze
+`kortetermijneconomie'. Van die verandering profiteerde de top wel maar
+niet de gewone arbeiders, nu autoriteit, vertrouwen en samenwerking zijn
+ondermijnd. Door structurele ongelijkheid en verandering op het werk
+ontstond er een mens die niet goed meer kan omgaan met de complexiteit
+van het systeem en die zich individueel terugtrekt. En wanneer de
+sociale orde dan ook nog zwak is georganiseerd trekken mensen zich
+verder in zichzelf terug. Zo krijgen we mensen die bang zijn om met de
+ander om te gaan en dat zorgt voor narcisme en zelfgenoegzaamheid,
+individualisme en onverschilligheid. Dat zorgt er vervolgens weer voor
+dat mensen problemen van hun eigen mensen wel vanzelfsprekend vinden en
+dat de problemen van de anderen jou niet zoveel kunnen schelen. Jij
+schetst een donker beeld. Als samenwerking kan worden verzwakt kan deze
+ook weer worden versterkt. Hier ben je weer optimistisch en daaraan
+besteed jij in het derde deel aandacht. De moderne samenleving is,
+volgens jou, aan flink herstel toe en daarbij heb je vooral oog voor het
+herstellen van de samenwerking. Hoe maken wij ons dat weer eigen en waar
+kunnen we van leren? Als musicus haal jij veel inspiratie uit de wereld
+van muziek. Om daarin verder te komen is het belangrijk dat je veel
+oefent, dat je naar elkaar luistert en je je openstelt voor de ander. Er
+zijn meer voorbeelden waar we veel van kunnen leren wat samenwerken
+betreft. Van arbeidsconsulenten, bijvoorbeeld, die de moeilijke taak
+hebben om langdurige werklozen, die een teruggetrokken leven leiden,
+angstig zijn of schaamte kennen, weer aan het werk te krijgen. In
+situaties waarmee deze consulenten worden geconfronteerd helpt sympathie
+en meevoelen niet. Het helpt wel als de emotionele temperatuur van de
+werkloze wordt verlaagd en zij weer aan het werk komen.
+Conflictmanagement, vergadertechnieken en professionele diplomatie zijn
+andere voorbeelden waar je uit put om van samenwerken te leren. Het gaat
+jou om vaardigheden waarmee grenzen worden verlegd, waarmee zorgen en
+belangen worden geherformuleerd, zaken open wordt gebroken, sociale
+distantie wordt gecreëerd en er een basis ontstaat om verder te gaan met
+de ander.
+
+Drie personen hebben jou als student beinvloed: David Riesman (bekend
+van zijn studie \emph{`The Lonely Crowd'} waarin hij laat zien hoe het
+karakter van de Amerikaan vlak na de WOII veranderd is en traditie en
+autonomie plaats hebben gemaakt voor het nadoen van ander), Erik Erikson
+(de moderne psycho-analyticus die over identiteit en identiteitscrises
+in verschillende levensfasen schreef) en Hannah Arendt (de grote
+filosofe van de twintigste eeuw die de moderne mens, het kwaad en
+totalitaire systemen analyseerde). Met zulke leermeesters kan het bijna
+niet meer misgaan. `Samen' doet misschien wel het meest aan Hannah
+Ahrendts boek `The Human Condition' denken dat gaat over het goede leven
+dat bestaat uit arbeid, werk en handelen. In de moderne tijd gaat het
+volgens Arendt steeds om consumeren, produceren en onze eigen wereld en
+steeds minder om de publieke zaak. Jijzelf bent minder filosofisch en
+abstract en meer praktisch. Ook jou gaat het om het goede leven, dat
+voor jou een leven met de ander is, en het ontwikkelen van een innerlijk
+levensdoel door middel van samenwerking. Samenwerking zie jij als een
+vaardigheid die we nodig hebben in deze tijd, een ambacht bijna, om
+dialogische relaties aan te gaan, ruimte te geven en te luisteren naar
+wat de ander wil zeggen en wat hij of zij nodig heeft. Wanneer je als
+lezer het boek uit hebt, roept het boek in eerste instantie ook
+irritatie op. Althans bij mij. Waarom houdt je de lijn niet meer vast,
+hadden die redacteuren jou niet meer op koers kunnen houden? Dat soort
+vragen. Als je het nog eens doorleest en ook jouw aanhangsel leest
+(`Coda. De kat van Montaigne') begrijp je jou beter. Het gaat je om de
+kunst van luisteren, op gezette tijden zwijgen en tact tonen. Net als
+Montaigne, jouw grote voorbeeld, wil je de lezer op dwaalsporen zetten,
+onderwerpen van onverwachte invalshoeken voorzien en er uiteindelijk een
+mozaïek van fragmenten van maken dat toch één geheel vormt. Net zoals
+Montaigne dat in zijn `Essays' heeft gedaan. Montaigne kijkt tegen de
+ander aan zoals hij tegen zijn kat aankijkt: blij dat hij anders is en
+soms verwonderd over wat hij doet. Dat wil jij ook en die
+raadselachtigheid moeten we terug zien te krijgen. Nu gaat het niet
+zozeer om wat jij schrijft maar vooral om de aannames die je daarbij
+heeft. Als je dat als lezer doorhebt en als je zo naar jou luistert,
+spreekt dit boek bijzonder aan. Ik heb het boek net op tijd gelezen om
+het verkiezingsjaar 2017 aan te kunnen. Het maakt duidelijk dat
+samenwerking niet vanzelf komt maar uitgebreide ervaring en oefening
+vraagt. De kunst ook om misschien te zeggen en ik zou denken dat.
+
+Sennett, R. (2016). \emph{Samen. Een pleidooi voor samenwerken en
+solidariteit.} Amsterdam: Meulenhoff, 399 pag., €24,99.
+
+\hypertarget{grit}{%
+\chapter*{GRIT}\label{grit}}
+\addcontentsline{toc}{chapter}{GRIT}
+
+Amsterdam, december 2016
+
+Beste Paul en Angela,
+
+Zo nu en dan zijn er van die Engelse woorden die op de een of andere
+wijze een eigen leven gaan leiden. Jaren geleden was er plotseling het
+woord `flow' dat werd geïntroduceerd door, en nu moet ik even goed
+opletten of ik het goed schrijf, Mihaly Csikszentmihalyi. Het gaat hier
+om een geestelijke toestand van iemand die volledig opgaat in zijn of
+haar bezigheid. De laatste jaren is er een nieuw woord dat steeds vaker
+opduikt, ook weer uit de hoek van de positieve psychologie, en dat we
+nog veel tegen zullen komen de komende tijd: `grit'. Let maar op. Het is
+zoiets als vastberadenheid, maar het Nederlandse woord is natuurlijk
+veel minder krachtig.
+
+Paul, jij bent een Amerikaanse publicist en schreef een paar jaar
+geleden \emph{`How Children Succeed: Grit, Curiosity and the Hidden
+Power of Character'}. Recent kwam jouw nieuwe boek uit onder de titel
+(hoe kan het anders, jij bent een Amerikaan): *`Helping Children
+Succeed: What Works and Why?* Het is, schrijf je, duidelijk dat er een
+grote groep kinderen qua schoolresultaten en onderwijssucces
+achterblijft. Het gaat hier met name om kinderen uit de gezinnen met
+lagere sociale economische achtergronden. Onderwijzers hebben er vaak
+hun handen vol aan om, in ieder geval een deel van die jongeren, te
+motiveren en mee te krijgen in het dagelijkse onderwijsritme. We weten
+waarom bepaalde kinderen uitvallen maar veel minder goed weten we waarom
+bepaalde kinderen succes hebben. Hoe wordt succes behaald en langs welke
+lijnen loopt dit? Het onderzoek dat er naar gedaan is, heeft volgens jou
+duidelijk gemaakt dat de link naar succes niet zozeer in de cognitieve
+zaken en het leren zelf zit. Nee, het zit veel meer in niet-cognitieve
+zaken zoals weerbaarheid, optimisme, zelfcontrole en (dus dat ene woord)
+`grit' (dat in het Nederlands misschien nog wel het beste met
+vastberadenheid is te vertalen). Het zijn deze kwaliteiten die het
+verschil maken en die in het onderwijs aan kinderen uit met name de
+sociaal zwakkere milieus zo essentieel zijn. Juist deze kinderen moeten
+leren omgaan met tegenslag en weten hoe ze hun ervaringen naar hun hand
+kunnen zetten. Juist voor deze kinderen zijn rustige, consistente en
+wederkerige interacties van het grootste belang voor de toekomst. Dat
+moeten ze vooral meekrijgen in hun vroege jaren aan de hand van hun
+ouders en opvoeders. Ook in voorschoolse en schoolse settings kunnen ze
+hun aandacht en concentratie leren te versterken en hun stress onder
+controle krijgen. Juist daarom moeten ouders en leerkrachten omgevingen
+vormen waar deze niet-cognitieve competenties, autonomie en
+verbondenheid worden ontwikkeld, waar kinderen grip krijgen op
+houdingen, percepties en representaties en daarmee op hun academische
+taken en gedrag. Kinderen en jongeren moeten over een langere tijd het
+gevoel krijgen dat ze erbij horen, dat hun inspanningen beloond worden,
+dat ze soms succes kunnen hebben en dat wat ze doen waarde heeft.
+Angela, jij bent een andere machinist van deze grit-trein die op dit
+moment door Amerika dendert. Ooit was je wiskundelerares en nu werk je
+als psychologe in de wetenschap. Al vroeg werd het jou duidelijk dat het
+IQ van een kind niet zo belangrijk is voor het succes van het kind.
+Succes heeft volgens jou veel meer met motivatie te maken en daar moet
+in het onderwijs meer aandacht voor komen. Uit jouw onderzoek naar
+succes in verschillende situaties kwam er één duidelijke voorspeller
+uit. Niet dus de sociaal economische situatie waarin kinderen opgroeien
+of de toets gegevens, nee, nee, het is ook volgens jou de `grit', wat je
+definieert als passie en volharding. Oftewel, de wijze waarop je iedere
+dag en over langere tijd met je toekomst bezig bent en hard werken.
+Daarover weten we eigenlijk betrekkelijk weinig en het enige wat we
+weten is dat het verandert met inspanning.
+
+Het idee van de `grit' slaat enorm aan in Amerika en krijgt heel veel
+aandacht op televisie en internet en in de kranten. Grote potten
+onderzoeksgeld gaan naar dit onderwerp toe. Het is natuurlijk ook een
+echt Amerikaans onderwerp waarin het maatschappelijk opklimmen verbonden
+wordt met hard werken, koers houden, doorzettingsvermogen en
+karaktervorming. Je hebt hierbij meteen die spijkerbroek en de
+opgestroopte mouwen voor ogen. Dat is op zich niet zo nieuw en misschien
+ook wel de basis van de Amerikaanse droom. Het perspectief dat jullie
+positieve psychologen (Paul en Angela) is natuurlijk heel anders dan dat
+van Robert Putnam. Putnam prikte vorige jaar die Amerikaanse droom nog
+door toen hij in `Our Kids' heel duidelijk maakte dat van gelijkheid van
+onderwijskansen al heel lang geen sprake meer is in Amerika. De
+Amerikaanse samenleving is uit elkaar gedreven en twee groepen leven
+overduidelijk gescheiden van elkaar.\\
+Er is nog een andere opmerking te maken over `grit' en dat is iets waar
+de onderwijsjournalist Paul Thomas ons onlangs terecht op heeft gewezen.
+Hij plaatst verschillende kritische kanttekeningen bij het nieuwe
+perspectief waar jullie, Paul en Angela, warm voor lopen. We moeten zo'n
+perspectief niet zomaar meteen met z'n allen omarmen en we moeten er op
+z'n minst en zeker in de beginfase een aantal vragen bijstellen. Grit
+wordt bijvoorbeeld gepresenteerd als een karaktertrek van de hogere orde
+met sterk voorspellende waarde naar zowel toekomstig maatschappelijk
+succes als schoolresultaten van kinderen. Maar onderzoek naar honderden
+effect-sizes in tientallen studies met tienduizenden individuen geeft
+vooralsnog toch een ander beeld van die effecten. De effecten die jullie
+(Paul en Angela) schetsen zijn helemaal niet zo duidelijk als jullie
+overtuigd in de media naar voren brengen. De verbanden liggen toch net
+wat anders. Vastberadenheid als karaktereigenschap lijkt veel meer op
+iets als zorgvuldigheid en dat is nu juist een karaktereigenschap die
+net wat moeilijker te veranderen is. Kortom, de wetenschappelijke basis
+waarop grit gebaseerd is en waar met name jij, Angela, naar refereert,
+lijkt vooralsnog dun. Daarom alleen al moeten we zo'n idee niet direct
+zomaar omarmen. We moeten er naar luisteren, we moeten er van leren en
+onderzoeken wat mogelijk is. Maar we moeten er vooral ook kritische
+vragen over blijven stellen. Zo'n kritische houding wordt tegenwoordig
+nogal eens gemist. Journalisten moeten niet bij één verhaal van een
+buitengewone school blijven steken, ze moeten wetenschappelijk onderzoek
+niet te simpel opvatten, ze moeten historische patronen herkennen, niet
+te optimistisch zijn over de mogelijkheden van het onderwijs, de invloed
+van de leraar niet overdrijven, niet alleen naar het individuele maar
+ook naar de maatschappelijke context kijken, mythen doorprikken,
+onderwijzers meer zelf aan het woord laten en de verbeelding laten
+spreken. Van journalisten mag en moet je vooral kritiek verwachten. Ook
+tegenover zo'n nieuw begrip als grit dat aantrekkelijk lijkt en waar
+zoveel mensen mee weglopen. Allicht moeten we vastberaden zijn om
+kinderen vastberaden te maken en daar van alles voor doen. Ook in
+Nederland. Maar we moeten ook vastberaden zijn en blijven om de goede
+vragen te blijven stellen, ook aan jullie, Paul en Angela.
+
+Dank jullie wel.
+
+Grote groet, -Harrie
+
+Tough, P. (2012). \emph{How Children Succeed: Grit, Curiosity, and the
+Hidden Power of Character.} New York: Houghton Mofflin Harcourt
+Publishing Company. pag., €,.
+
+Tough, P. (2016). \emph{Helping Children Succeed: What Works and Why.}
+New York: Houghton Mofflin Harcourt Publishing Company. pag., €,.
+
+Duckworth, A. (2016). Grit. The Power of Passion and Perseverance. New
+York: Scribner. pag., €,.
+
+\hypertarget{de-ouder-als-meubelmaker-of-tuinman}{%
+\chapter*{DE OUDER ALS MEUBELMAKER OF
+TUINMAN}\label{de-ouder-als-meubelmaker-of-tuinman}}
+\addcontentsline{toc}{chapter}{DE OUDER ALS MEUBELMAKER OF TUINMAN}
+
+Amsterdam, januari 2017
+
+Beste Alison Gopnik,
+
+Jij moet een moedig persoon zijn. Over opvoeden zijn er alleen al bij
+Amazon 60.000 titels en toch heb je onlangs over dat onderwerp een boek
+geschreven. Je bent bekend geworden met boeken als \emph{`The scientist
+in the crib. What early learning tells us about the mind'} en \emph{`The
+Philosophical baby: what children's minds tells us about truth, love,
+and the meaning of life'}. In die boeken laat je zien dat er grote
+overeenkomsten zijn tussen hoe wetenschappers en hoe jonge kinderen
+denken. In jouw laatste boek schrijf je over opvoeden en de rol van
+ouders daarbij. Misschien is dat boek niet zozeer vernieuwend, maar het
+zet je wel aan het denken. Ik heb het hier over \emph{`The gardener and
+the carpenter. What the new science of child development tells us about
+the relationship between parents and children'}. Jij bent in dat boek
+zeer kritisch over hoe ouders tegenwoordig kinderen opvoeden en hoe ze
+erover denken. `Parenting' heet het in het Engels en dat is net wat
+specifieker dan opvoeden zoals wij het in Nederland noemen. Dat
+`parenting' of opvoeden door ouders is volgens jou tegenwoordig een
+doelgerichte activiteit geworden, een soort werk dat kinderen beter,
+gelukkiger en succesvoller wil maken. Opvoeden is al lang niet meer
+alleen wat we doen met kinderen maar opvoeden schrijft vooral voor wat
+er moet gebeuren. Die doelgerichte benadering leidt er volgens jou toe
+dat we onze kinderen eindeloos met kinderen van onze vrienden
+vergelijken, kijken naar wat onze kinderen op school presteren en dat
+vergelijken met hoe andere kinderen het doen. We zijn niet met het nu
+maar vooral met de toekomst bezig. Als ouder willen we de laatste
+technieken toepassen en volgen we de aanwijzingen van diverse experts.
+We zijn alleen maar tevreden als we een goed uitgewerkt opvoedingsmodel
+kunnen toepassen en als onze opvoeding een bepaald resultaat oplevert.
+
+Jijzelf groeide op in de zestiger jaren, die gelukkige vijf minuten,
+zoals je dat zo mooi omschrijft, tussen de pil en AIDS. Jij maakte deel
+uit van die kritische generatie die nogal wat had op te merken over
+ouders die zelf vaak in de crisistijd waren opgevoed. Nu stel je, onder
+tussen zelf moeder en grootmoeder, dat jouw generatie (onze generatie)
+het er niet heel veel beter vanaf heeft gebracht. Volgens jou is de
+manier waarop we tegen opvoeden aankijken een verkeerde manier omdat die
+niet past bij wetenschappelijke inzichten die laten zien dat we het de
+kinderen veel meer op hun eigen manier moeten laten doen. Je hebt gelijk
+dat het ouders van tegenwoordig veel te weinig gaat om variatie, risico
+en innovatie en dat de opvoeding op die manier misschien wel te weinig
+aansluit bij het evolutionaire doel van de kindertijd. Kindertijd is
+vooral de tijd van exploratie, nieuwsgierigheid en spel en dat heb je
+nodig voorafgaand aan de fase van exploiteren, verantwoordelijkheid en
+werk. Wat er van elk kind wordt is onvoorspelbaar en uniek en het
+resultaat van vreemde combinaties van genen, ervaringen, cultuur en
+geluk. We moeten niet te snel een kind willen maken maar veelmeer
+liefde, veiligheid en stabiliteit bieden waarin kinderen op hun manier
+kunnen groeien. We kunnen nu één keer niet kinderen lerend maken, maar
+we kunnen ze wel laten leren. Ouderschap zie jij terecht als een
+belangrijk deel van de levenscyclus waarbij onze ouders ons het verleden
+gaven en wij op onze beurt de toekomst aan onze kinderen doorgeven. Meer
+dan bij welk ander levend soort ook zijn kinderen bij ons mensen lange
+tijd afhankelijk van opvoeders. Zelfs in vroegere tijden waren ze niet
+voor hun vijftiende zelfstandig. Kinderen waren daarbij niet alleen
+afhankelijk van hun eigen ouders maar ook van `allo-ouders', het netwerk
+van grootouders, ooms, tantes, neven, nichten en vrienden. Alleen komen
+we als soort nergens en we ontwikkelen onszelf alleen in zo'n netwerk
+van zorg en liefde. Lange tijd groeiden kinderen op in uitgebreide
+families maar vandaag de dag is dat netwerk veel kleiner geworden. De
+opvoedingstaak ligt nu meer dan ooit bij de ouders, die zelf lange tijd
+naar school zijn geweest en al enige tijd werken voordat ze ouder zijn
+geworden. Op school en werk hebben ze zich dat doelgerichte, met de
+nadruk op kennis en competenties, eigen gemaakt. Op school en werk leidt
+dat natuurlijk tot succes. Maar in de opvoeding thuis is dat niet zozeer
+het geval. Ook lijkt het er op dat ouders van nu alleen maar oog voor
+het detail hebben. Ze stellen zichzelf vragen als hoe lang moeten ze hun
+kinderen moeten laten huilen, of de computer wel goed voor ze is en of
+ze wel lang genoeg huiswerk maken. De grote lijn lijken ze uit het oog
+te zijn verloren.
+
+Van jouw boek heb ik veel geleerd. Als ontwikkelingspsycholoog bied je
+de lezer nieuwe inzichten, als filosoof lever je interessante dilemma's
+en als ouder/grootouder laat je zien met welke concrete situaties je te
+maken hebt gehad. Opvoeden tegenwoordig, zo schrijf jij, lijkt misschien
+wel het meest op het werk van een meubelmaker. Er is ruim aandacht voor
+het juiste materiaal waarmee gewerkt wordt, voor de juiste bewerking en
+ouders willen net als de meubelmaker ervoor zorgen dat het juiste
+product wordt afgemaakt. In het proces gaat het om precisie en controle
+en chaos en verschil moeten zoveel mogelijk worden voorkomen. Maar
+jijzelf hebt veel op met het idee dat opvoeden als het zorgen voor een
+tuin is. Want als tuinman moet je de tuin beschermen en planten ruimte
+geven waar nodig. Je moet er veel voor doen maar het onverwachte is hier
+veel belangrijker. Net als de tuinman kun je als ouder niet alles
+voorspellen en variatie en wanorde lijken er hier wel degelijk toe te
+doen. Ik moet je eerlijk zeggen dat ik samen met mijn vrouw vaak in de
+tuin werk. Ik weet (en mijn vrouw nog veel beter) dat tuinieren wel
+degelijk doelgerichte kanten kent. Je moet soms dingen doen om een half
+jaar later bepaalde resultaten te bereiken. Niet alles maar wel voor een
+groot deel. Bovendien heb je hele verschillende tuinen. Natuurlijke
+tuinen en tuinen waar precisie en controle wel van afspatten. Je hebt
+Engelse tuinen en je hebt Franse tuinen. Kinderen waarvan de
+ontwikkeling in gevaar komt om welke redenen dan ook, zullen ondersteund
+moeten worden. Over hoe dat het beste kan en waar we rekening mee moeten
+houden moeten we na blijven denken. Dan doen we ook in de tuin als
+planten niet tot hun recht komen. Dat zullen we doelgericht moeten
+blijven doen en ik neem aan dat je die gedachte deelt. Met het
+vergelijken van opvoeden met houtbewerken aan de ene kant en tuinieren
+aan de andere kant kan ik niet helemaal met jou meekomen. Misschien,
+denk ik zelf, had je voor jouw boek veel beter de metafoor van het lange
+en avontuurlijke reizen met het aankomen als doel kunnen nemen, zoals
+Kavafis dat zo treffend in zijn beroemde gedicht `Ithaka' beschrijft. De
+reis die vele jaren duurt maar rijk is aan wat je onderweg beleeft. Bij
+opvoeden gaat het om het aankomen maar veel meer nog om die mooie reis.
+Maar laat ik zelf ook de grote lijn van jouw boek in de gaten houden en
+het punt dat je maakt is terecht.
+
+Dank je wel,
+
+Grote groet, -Harrie
+
+Gopnik, A.(2016). \emph{The gardener and the carpenter. What the new
+science of child development tells us about the relationship between
+parents and children.} New York: Farrar, Strauss and Giroux, 320 pag.,
+€22,16.
+
+\hypertarget{grenzen-verleggen}{%
+\chapter*{GRENZEN VERLEGGEN}\label{grenzen-verleggen}}
+\addcontentsline{toc}{chapter}{GRENZEN VERLEGGEN}
+
+Amsterdam, februari 2017
+
+Beste Julian Baggini,
+
+Wij zijn ons verstand verloren en met die hartenkreet val je in jouw
+nieuwe boek meteen met de deur in huis. Was ons rede en rationaliteit
+meer dan 2000 jaar bijzonder dierbaar, tegenwoordig lijken die er minder
+toe te doen. Verschillende politici stellen openlijk de vraag of experts
+nog wel zo nodig zijn. Feiten zijn minder belangrijk dan emoties. Wij
+hebben, zo lijkt het, steeds minder vertrouwen in de rede. Wat maakt het
+allemaal nog uit. Het kapitalisme heeft veel van de menselijkheid
+weggenomen, we hebben Auschwitz gehad, veel wordt bepaald door onze
+genen en de grote multinationals doen toch wat ze niet laten kunnen. We
+volgen tegenwoordig ons hart en onze passie omdat we denken dat we daar
+nog greep op hebben. Over dat irrationele landschap maak jij je nogal
+zorgen. Jij vindt jezelf een geschikt persoon om hierover een boek te
+schrijven. Ik geloof dat je gelijk hebt. Je bent universitair geschoold
+en staat daarmee met één been in de wetenschap. Maar de standaard
+academische stijl die is jou te `high brow', te precies en niet zelden
+rigide. Je voelt je de laatste jaren thuis buiten de universiteit waar
+je werkt als redacteur, journalist en schrijver. Zo sta je met het
+andere been in de samenleving. Je hebt de afgelopen jaren honderden
+wetenschappers geïnterviewd en weet maar al te goed als buitenstaander
+wat er in die wereld speelt. Je hebt je bezig gehouden met filosofie en
+religie. Jij overziet, zeg je zelf, het hele bos en niet, zoals
+wetenschappers zelf vaak, een boom, een enkele struik of zelfs een blad.
+In \emph{`The edge of reason. A rational skeptic in an irrational
+world'} vraag jij je af hoe het allemaal zo ver heeft kunnen komen met
+de rede en wat er moet gebeuren om die weer betekenis te geven.
+
+Sinds Plato is de rede altijd het hoogst haalbare geweest. De wereld is
+veel complexer geworden maar volgens jou kennen rede en rationaliteit
+vier uitgangspunten die terug te voeren zijn op Plato. Elk uitgangspunt
+zie jij als een mythe die volgens jou een voor een moet worden
+doorgeprikt. De eerste van de vier mythes, waar we nog steeds last van
+hebben, is de mythe dat subjectiviteit er in het vormen van een oordeel
+er niet toe doet. Rede zou eigenlijk altijd tot een bepaalde conclusie
+moeten leiden. Maar jij laat zien dat er altijd een subjectief element
+meespeelt. Op het hoogste niveau van de natuurwetenschap, bijvoorbeeld,
+is een klein groepje topwetenschappers het helemaal niet met elkaar eens
+over de centraal onderliggende theorie en kunnen niet tot een vergelijk
+komen hoe het in elkaar zit. Ook de tweede mythe is al duizenden jaren
+oud en houdt in dat de ziel zou worden voortgetrokken door twee paarden:
+het intellect of rede aan de ene kant en de emotie aan de andere kant.
+Als de rede maar de touwtjes in handen heeft, komt het goed. Maar die
+rede kan helemaal niet functioneren zonder die emotie en die onderlinge
+verbondenheid moet ook erkend worden. Het was ook Plato die met het idee
+kwam dat rationaliteit en rede ons op een goede manier aanzet tot
+handelen en het dan vanzelf wel tot het goede handelen leidt. Tot slot
+zou het volgens diezelfde goede, oude Plato goed zijn als in
+gemeenschappen filosofen koningen zouden zijn. Zover is het nooit
+gekomen maar de geschiedenis heeft wel overduidelijk gemaakt wat het
+betekent als er teveel vertrouwen is in objectieve waarheid en als
+systemen menen te weten hoe mensen zouden moeten leven. De geschiedenis
+heeft duidelijk gemaakt dat een rationele staat veel meer subtiliteit
+veronderstelt.\\
+Misschien moeten we wel erkennen dat de rede van de troon is gestoten
+juist omdat haar ster zo hoog was gerezen. Maar nu die zo in twijfel
+wordt getrokken, moet de positie ervan worden geherdefinieerd en opnieuw
+bezien. Die herdefiniëring is nodig omdat de rede en rationaliteit zijn
+gestrand in het mulle zand van populisme en postmodernisme. Om de kar
+weer aan het rijden te krijgen moeten we meer los komen van de harde,
+steriele wetenschappelijke kijk op de zaak die zo de boventoon die zo de
+boventoon voert. Volgens jou is het belangrijk dat de grenzen van de
+rede opnieuw worden vastgesteld en we meer oog hebben voor kritisch
+denken waar denken nodig is. Jijzelf plaatst diverse kanttekeningen bij
+rede en rationaliteit en je vraagt je inderdaad als lezer af, wat heb
+jijzelf nog met die rede: ben je niet veel te kritisch om die nog te
+kunnen verdedigen? Maar jij kijkt daar juist anders tegen aan. Juist
+omdat je zoveel met rede en rationaliteit op hebt, wil je snappen wat er
+scheelt. Jij vergelijkt jezelf met een topatleet. Die moet ook heel veel
+trainen en er voor zorgen dat zijn zwakke plekken aandacht krijgen.
+Volgens jou is het nodig dat intellectuelen en academici zelf ook nagaan
+denken over waar het bij rede en rationaliteit om moet gaan en welke
+vorm bij deze tijd past. Jij staat een sceptische houding ten opzicht
+van de rede voor en een bredere benadering dan die waar nu sprake van
+is. Het gaat jou om duidelijke en vanzelfsprekende principes, om
+duidelijke stappen die gezet kunnen worden, om het regelmatig herbezien
+van conclusies en het steeds onder ogen zien van de consequenties ervan.
+Dat betekent volgens jou per definitie dat we er heel langzaam op
+vooruit gaan, dat totale waarheid misschien wel nooit wordt bereikt,
+maar wel dat er een soort stabiliteit en zekerheid nodig is en dat in de
+basis duidelijk is waar we voor staan. Jij voelt je in deze zin erg
+thuis in de gedachtewereld van Hume, die ook vindt dat we de beperkingen
+van de rede moeten accepteren en dat er daarbij altijd een bepaalde
+graad van twijfel aanwezig moet zijn. Jij vindt dat we weer geloof
+moeten krijgen in de kracht en de reikwijdte van rationaliteit. Maar ook
+dat academici en intellectuelen zich weer verantwoordelijk gaan voelen
+voor dat rationele domein en ervoor zorgen dat we hierbinnen weer met
+elkaar kunnen discussiëren en argumenteren. Verschillen zullen en moeten
+er ook blijven als we het maar eens zijn over de gedeelde basis van de
+rationaliteit en die basis zelf niet teveel in twijfel trekken.
+
+In jouw boek heb je vooral ook voor het proces en hoe we met elkaar
+omgaan. Je geeft er zelfs een hele gids met 50 tips bij, die voor mij
+niet hadden gehoeven. Maar het belangrijkste voor jou is dat we weer
+kunnen schaatsen met elkaar ook al is het ijs dun. Wij hebben geen
+andere keuze. Als ik naar buiten kijk zie ik dat er vandaag een dun
+laagje ijs ligt op het water waar mijn woning ligt. Wat lijkt mij dat
+weer heerlijk, schaatsen. Misschien zijn we het met z'n allen wel een
+beetje verleerd. Met enkele aanwijzingen, zoals jij die in dit mooie
+boek geeft, moet dat toch weer lukken.
+
+Dank je wel.
+
+Grote groet, -Harrie
+
+Baggini, J.(2016). \emph{The edge of reason. A rational skeptic in an
+irrational world.} New Heaven and London: Yale University Press. €18,10
+
+Jijzelf groeide op in de zestiger jaren, die gelukkige vijf minuten,
+zoals je dat zo mooi omschrijft, tussen de pil en AIDS. Jij maakte deel
+uit van die kritische generatie die nogal wat had op te merken over
+ouders die zelf vaak in de crisistijd waren opgevoed. Nu stel je, onder
+tussen zelf moeder en grootmoeder, dat jouw generatie (onze generatie)
+het er niet heel veel beter vanaf heeft gebracht. Volgens jou is de
+manier waarop we tegen opvoeden aankijken een verkeerde manier omdat die
+niet past bij wetenschappelijke inzichten die laten zien dat we het de
+kinderen veel meer op hun eigen manier moeten laten doen. Je hebt gelijk
+dat het ouders van tegenwoordig veel te weinig gaat om variatie, risico
+en innovatie en dat de opvoeding op die manier misschien wel te weinig
+aansluit bij het evolutionaire doel van de kindertijd. Kindertijd is
+vooral de tijd van exploratie, nieuwsgierigheid en spel en dat heb je
+nodig voorafgaand aan de fase van exploiteren, verantwoordelijkheid en
+werk. Wat er van elk kind wordt is onvoorspelbaar en uniek en het
+resultaat van vreemde combinaties van genen, ervaringen, cultuur en
+geluk. We moeten niet te snel een kind willen maken maar veelmeer
+liefde, veiligheid en stabiliteit bieden waarin kinderen op hun manier
+kunnen groeien. We kunnen nu één keer niet kinderen lerend maken, maar
+we kunnen ze wel laten leren. Ouderschap zie jij terecht als een
+belangrijk deel van de levenscyclus waarbij onze ouders ons het verleden
+gaven en wij op onze beurt de toekomst aan onze kinderen doorgeven. Meer
+dan bij welk ander levend soort ook zijn kinderen bij ons mensen lange
+tijd afhankelijk van opvoeders. Zelfs in vroegere tijden waren ze niet
+voor hun vijftiende zelfstandig. Kinderen waren daarbij niet alleen
+afhankelijk van hun eigen ouders maar ook van `allo-ouders', het netwerk
+van grootouders, ooms, tantes, neven, nichten en vrienden. Alleen komen
+we als soort nergens en we ontwikkelen onszelf alleen in zo'n netwerk
+van zorg en liefde. Lange tijd groeiden kinderen op in uitgebreide
+families maar vandaag de dag is dat netwerk veel kleiner geworden. De
+opvoedingstaak ligt nu meer dan ooit bij de ouders, die zelf lange tijd
+naar school zijn geweest en al enige tijd werken voordat ze ouder zijn
+geworden. Op school en werk hebben ze zich dat doelgerichte, met de
+nadruk op kennis en competenties, eigen gemaakt. Op school en werk leidt
+dat natuurlijk tot succes. Maar in de opvoeding thuis is dat niet zozeer
+het geval. Ook lijkt het er op dat ouders van nu alleen maar oog voor
+het detail hebben. Ze stellen zichzelf vragen als hoe lang moeten ze hun
+kinderen moeten laten huilen, of de computer wel goed voor ze is en of
+ze wel lang genoeg huiswerk maken. De grote lijn lijken ze uit het oog
+te zijn verloren.
+
+Van jouw boek heb ik veel geleerd. Als ontwikkelingspsycholoog bied je
+de lezer nieuwe inzichten, als filosoof lever je interessante dilemma's
+en als ouder/grootouder laat je zien met welke concrete situaties je te
+maken hebt gehad. Opvoeden tegenwoordig, zo schrijf jij, lijkt misschien
+wel het meest op het werk van een meubelmaker. Er is ruim aandacht voor
+het juiste materiaal waarmee gewerkt wordt, voor de juiste bewerking en
+ouders willen net als de meubelmaker ervoor zorgen dat het juiste
+product wordt afgemaakt. In het proces gaat het om precisie en controle
+en chaos en verschil moeten zoveel mogelijk worden voorkomen. Maar
+jijzelf hebt veel op met het idee dat opvoeden als het zorgen voor een
+tuin is. Want als tuinman moet je de tuin beschermen en planten ruimte
+geven waar nodig. Je moet er veel voor doen maar het onverwachte is hier
+veel belangrijker. Net als de tuinman kun je als ouder niet alles
+voorspellen en variatie en wanorde lijken er hier wel degelijk toe te
+doen. Ik moet je eerlijk zeggen dat ik samen met mijn vrouw vaak in de
+tuin werk. Ik weet (en mijn vrouw nog veel beter) dat tuinieren wel
+degelijk doelgerichte kanten kent. Je moet soms dingen doen om een half
+jaar later bepaalde resultaten te bereiken. Niet alles maar wel voor een
+groot deel. Bovendien heb je hele verschillende tuinen. Natuurlijke
+tuinen en tuinen waar precisie en controle wel van afspatten. Je hebt
+Engelse tuinen en je hebt Franse tuinen. Kinderen waarvan de
+ontwikkeling in gevaar komt om welke redenen dan ook, zullen ondersteund
+moeten worden. Over hoe dat het beste kan en waar we rekening mee moeten
+houden moeten we na blijven denken. Dan doen we ook in de tuin als
+planten niet tot hun recht komen. Dat zullen we doelgericht moeten
+blijven doen en ik neem aan dat je die gedachte deelt. Met het
+vergelijken van opvoeden met houtbewerken aan de ene kant en tuinieren
+aan de andere kant kan ik niet helemaal met jou meekomen. Misschien,
+denk ik zelf, had je voor jouw boek veel beter de metafoor van het lange
+en avontuurlijke reizen met het aankomen als doel kunnen nemen, zoals
+Kavafis dat zo treffend in zijn beroemde gedicht `Ithaka' beschrijft. De
+reis die vele jaren duurt maar rijk is aan wat je onderweg beleeft. Bij
+opvoeden gaat het om het aankomen maar veel meer nog om die mooie reis.
+Maar laat ik zelf ook de grote lijn van jouw boek in de gaten houden en
+het punt dat je maakt is terecht.
+
+Dank je wel,
+
+Grote groet, -Harrie
+
+Gopnik, A.(2016). \emph{The gardener and the carpenter. What the new
+science of child development tells us about the relationship between
+parents and children.} New York: Farrar, Strauss and Giroux, 320 pag.,
+€22,16.
+
+\hypertarget{brits-werelderfgoed}{%
+\chapter*{BRITS WERELDERFGOED}\label{brits-werelderfgoed}}
+\addcontentsline{toc}{chapter}{BRITS WERELDERFGOED}
+
+Maart, 2017
+
+Beste Helen Pearson,
+
+Jij noemt de naoorlogse Britse cohortstudies (de vijf studies die er in
+jouw land sinds 1946 zijn opgezet om de ontwikkeling van het leven van
+gewone mensen van geboorte tot en met de dood te volgen) een juweel in
+de kroon van de Britse wetenschap. In ieder geval maak jij in \emph{`The
+Life Project. The extraordinary story of our ordinary lives'} wel heel
+duidelijk hoe uitzonderlijk deze studies zijn, welke schat aan inzichten
+en beleidsmaatregelen ze hebben opgeleverd en hoe ze duidelijke
+antwoorden geven op belangrijke vragen als waarom sommige mensen in het
+leven gelukkig, gezond en succesvol worden en dit voor anderen niet is
+weggelegd. Inderdaad, buitengewone studies van grote groepen hele gewone
+mensen. Veel wetenschappers hebben de levens van vijf generaties
+zorgvuldig gevolgd en dat heeft geleid tot terabytes data, tientallen
+boeken, duizenden artikelen, vriezers vol met DNA materiaal, dozen vol
+met nagels, babytandjes en zelfs opslag van duizenden placenta's. Jij
+bent wetenschapsjournalist en de eindredacteur van het bekende blad
+\emph{`Nature'}. In 2010 las je voor het eerst over deze studies en in
+2011 bezocht je een feestje van een van deze cohorten. Daarna was je
+niet meer te houden. In de vijf jaar erna werk je aan en beschrijf je
+heel zorgvuldig de geschiedenis van deze cohortstudies. Je bezoekt in
+die tijd talloze bibliotheken, laboratoria en onderzoekkelders en
+spreekt met genetici, economen, epidemiologen, sociale wetenschappers en
+statistici. Jouw verhaal is een verhaal geworden van overleven, van
+strijdvaardige en bijzondere wetenschappers die voortdurend hard vechten
+om hun studie overeind te houden en die met hun geloof, verbondenheid,
+eigenwijsheid, kennis, verbeelding en, toch ook wel, excentriciteit
+ervoor zorgen dat deze studies doorgezet worden. Jouw boek is een
+sociale en wetenschapsgeschiedenis tegelijkertijd en het lezen ervan,
+moet ik jou zeggen, deed mij heel veel plezier, niet in de laatste
+plaats vanwege jouw jaloersmakende schrijfstijl.
+
+Jouw boek begint wanneer in 1946 een gek groepje wetenschappers alle
+informatie gaat verzamelen over de geboorte van elke Britse baby die er
+in een kille maartse week van dat jaar werd geboren en wanneer talloze
+verpleegsters op de fiets het land doortrekken. Het leven van duizenden
+van hen wordt sinds die eerste meting gevolgd en deze eerste Britse
+cohort hield vorig jaar zijn zeventigste verjaardag. Vergelijkbare
+cohorten worden daarna nogmaals uitgezet onder kinderen die in 1958 zijn
+geboren, in 1970, begin jaren negentig en in 2000 (millennium kinderen).
+In totaal worden er meer dan 70.000 kinderen op hun levenspad gevolgd.
+In de eerste jaren is er uiteraard veel aandacht voor vraagstukken die
+met de geboorte van kinderen te maken hebben. De eerste inzichten zijn
+schokkend toen duidelijk werd hoe sterk het land door klassen was
+verdeeld en de kindersterfte 70\% hoger was onder kinderen van de
+werkende klasse. De inzichten leiden er in deze tijd toe dat
+ondersteuning rond de geboorte in het aanbod van de net opgerichte
+Nationale Health Service wordt opgenomen. Vanaf de jaren zestig wordt er
+steeds meer over het onderwijs gesproken. Er zou sprake zijn van het
+verlies van talent en dat kwam met name voor onder de arme kinderen. De
+cohortstudies brengen deze onderwijsachterstanden duidelijk aan het
+licht. Begin jaren zeventig wordt er nog volop gerookt in de westerse
+samenleving en roken was ondertussen als een duidelijke risicofactor
+voor ziekten en een verkorte levensduur gedetecteerd. Vanwege roken
+stierven volwassenen eerder, maar wat betekent dat roken voor kinderen?
+40\% van de zwangere vrouwen rookte begin jaren zeventig nog en de
+cohortstudies laten in deze jaren overduidelijk zien dat dit roken
+samenhangt met kindersterfte en lage geboortegewicht. Nadat de ergste
+naoorlogse armoede is weggewerkt en de mensen het weer wat beter
+krijgen, steken nieuwe ziekten de kop op. Obesitas en overgewicht nemen
+met de welvaart toe en de cohortstudies laten zien dat gewicht onder de
+verschillende cohorten tegelijkertijd sterk toeneemt. De leeftijden van
+de cohortdeelnemers nemen verder toe en nieuwe problemen steken de kop
+op. Zo wordt duidelijk gemaakt dat één op de drie ouders cognitieve
+vaardigheden heeft die op het niveau van elf-jarigen liggen. Talloze
+tests worden er onder deze volwassenen uitgezet om dit duidelijk te
+maken. De data zijn zo sterk dat er ook inzichten kunnen worden gegeven
+in de sociale mobiliteit en de intergenerationele overdracht ervan. De
+sociaal economische toekomst van kinderen die in de jaren zeventig zijn
+geboren is sterker aan die van hun ouders verbonden dan van kinderen die
+in de jaren vijftig zijn geboren. Ook maken de cohortstudies duidelijk
+hoe belangrijk de betrokkenheid van ouders in de eerste jaren is voor
+een succesvol leven. Ondertussen zijn de eerste cohortdeelnemers senior
+geworden en laat het zien met welke toename van stoornissen en ziekten
+deze groep ouderen te maken heeft. In jouw boek maak ik, aandachtige
+lezer, ook kennis met een groep hele bijzondere wetenschappers zoals
+Douglas, Butler, Bynner, Wadsworth, Goldstein, Chalmers, Golding,
+Kellner, Sullivan, Elliot, Goodman, Fitzesimon, Dezacourt en vele
+anderen. In eerste instantie zijn het allemaal mannen, tegenwoordig zijn
+alle cohortstudies in handen van vrouwen. In eerste instantie wordt de
+verklaring voor onderliggende uitkomsten veelal gezocht in de omgeving
+waarin mensen opgroeien, later spelen genetische elementen een
+belangrijke rol. De studies zijn opgezet in een tijd dat er nog helemaal
+geen gebruik van computers kan worden gemaakt. Daar kun je tegenwoordig
+helemaal geen voorstelling van maken maar de gegevens werden toch
+allemaal met de hand ingevoerd en op betrekkelijke eenvoudige manier
+geanalyseerd. Jij laat ook zien waar er strijd wordt geleverd tussen
+wetenschap en politiek maar ook tussen wetenschappelijke disciplines
+onderling (sociale wetenschap bijvoorbeeld ten opzichte van medische
+wetenschap).
+
+Daar waar de cohortstudies doorgaan, wat jij van harte toejuicht,
+eindigt jouw boek in 2015. Je laat zien hoe de vijf studies er dan
+voorstaan, wat de verschillen tussen de vijf studies zijn en wie er voor
+welke studie verantwoordelijk is. Ondertussen zijn er ook longitudinale
+studies uitgezet in andere landen, zoals in Noorwegen, Denemarken,
+Zweden en Amerika en ook in ons eigen land (bijvoorbeeld Generation R in
+Rotterdam). Hier zijn ze dan misschien niet zo vroeg met deze levensloop
+studies maar over de decennia heen zien we hier wel vergelijkbare
+beleidsmaatregelen. Wat brachten de studies dan weer aan extra
+informatie in en wat veranderde in Engeland wel en in de andere landen
+niet? Dat haal ik toch niet helemaal uit jouw boek. Je maakt wel weer
+expliciet duidelijk dat er geen land op dit gebied zoiets heeft
+gepresteerd als het Verenigd Koninkrijk. Het Verenigd Koninkrijk kent 28
+door de Unesco erkende werelderfgoederen. Daaronder vallen onder andere
+Stonehedge, de Tower of London en de Canterbury Castle. Misschien zijn
+die cohortstudies nog wel meer dan dat juweel in de Britse
+wetenschappelijke kroon, waar jij het over hebt, en verdienen ze zelfs
+een plaatsje in dat prachtig rijtje Brits werelderfgoederen. Daar waar
+het Britse wereldrijk na de Tweede Wereldoorlog werd afgebroken, zijn
+jullie in ieder geval op dit terrein wereldleider gebleven. Dat besef is
+er helemaal niet maar jouw studie maakt duidelijk waar de Brit trots op
+moet zijn en dat we ook wel wat breder tegen het cultureel erfgoed
+kunnen aankijken.
+
+Dank je wel.
+
+Grote groet, -Harrie
+
+Pearson, H.(2016). \emph{The Life Project. The extraordinary story of
+our ordinary lives.} London: Penguin Books Ltd.~416 pagina's. €23,99
+
+Jijzelf groeide op in de zestiger jaren, die gelukkige vijf minuten,
+zoals je dat zo mooi omschrijft, tussen de pil en AIDS. Jij maakte deel
+uit van die kritische generatie die nogal wat had op te merken over
+ouders die zelf vaak in de crisistijd waren opgevoed. Nu stel je, onder
+tussen zelf moeder en grootmoeder, dat jouw generatie (onze generatie)
+het er niet heel veel beter vanaf heeft gebracht. Volgens jou is de
+manier waarop we tegen opvoeden aankijken een verkeerde manier omdat die
+niet past bij wetenschappelijke inzichten die laten zien dat we het de
+kinderen veel meer op hun eigen manier moeten laten doen. Je hebt gelijk
+dat het ouders van tegenwoordig veel te weinig gaat om variatie, risico
+en innovatie en dat de opvoeding op die manier misschien wel te weinig
+aansluit bij het evolutionaire doel van de kindertijd. Kindertijd is
+vooral de tijd van exploratie, nieuwsgierigheid en spel en dat heb je
+nodig voorafgaand aan de fase van exploiteren, verantwoordelijkheid en
+werk. Wat er van elk kind wordt is onvoorspelbaar en uniek en het
+resultaat van vreemde combinaties van genen, ervaringen, cultuur en
+geluk. We moeten niet te snel een kind willen maken maar veelmeer
+liefde, veiligheid en stabiliteit bieden waarin kinderen op hun manier
+kunnen groeien. We kunnen nu één keer niet kinderen lerend maken, maar
+we kunnen ze wel laten leren. Ouderschap zie jij terecht als een
+belangrijk deel van de levenscyclus waarbij onze ouders ons het verleden
+gaven en wij op onze beurt de toekomst aan onze kinderen doorgeven. Meer
+dan bij welk ander levend soort ook zijn kinderen bij ons mensen lange
+tijd afhankelijk van opvoeders. Zelfs in vroegere tijden waren ze niet
+voor hun vijftiende zelfstandig. Kinderen waren daarbij niet alleen
+afhankelijk van hun eigen ouders maar ook van `allo-ouders', het netwerk
+van grootouders, ooms, tantes, neven, nichten en vrienden. Alleen komen
+we als soort nergens en we ontwikkelen onszelf alleen in zo'n netwerk
+van zorg en liefde. Lange tijd groeiden kinderen op in uitgebreide
+families maar vandaag de dag is dat netwerk veel kleiner geworden. De
+opvoedingstaak ligt nu meer dan ooit bij de ouders, die zelf lange tijd
+naar school zijn geweest en al enige tijd werken voordat ze ouder zijn
+geworden. Op school en werk hebben ze zich dat doelgerichte, met de
+nadruk op kennis en competenties, eigen gemaakt. Op school en werk leidt
+dat natuurlijk tot succes. Maar in de opvoeding thuis is dat niet zozeer
+het geval. Ook lijkt het er op dat ouders van nu alleen maar oog voor
+het detail hebben. Ze stellen zichzelf vragen als hoe lang moeten ze hun
+kinderen moeten laten huilen, of de computer wel goed voor ze is en of
+ze wel lang genoeg huiswerk maken. De grote lijn lijken ze uit het oog
+te zijn verloren.
+
+Van jouw boek heb ik veel geleerd. Als ontwikkelingspsycholoog bied je
+de lezer nieuwe inzichten, als filosoof lever je interessante dilemma's
+en als ouder/grootouder laat je zien met welke concrete situaties je te
+maken hebt gehad. Opvoeden tegenwoordig, zo schrijf jij, lijkt misschien
+wel het meest op het werk van een meubelmaker. Er is ruim aandacht voor
+het juiste materiaal waarmee gewerkt wordt, voor de juiste bewerking en
+ouders willen net als de meubelmaker ervoor zorgen dat het juiste
+product wordt afgemaakt. In het proces gaat het om precisie en controle
+en chaos en verschil moeten zoveel mogelijk worden voorkomen. Maar
+jijzelf hebt veel op met het idee dat opvoeden als het zorgen voor een
+tuin is. Want als tuinman moet je de tuin beschermen en planten ruimte
+geven waar nodig. Je moet er veel voor doen maar het onverwachte is hier
+veel belangrijker. Net als de tuinman kun je als ouder niet alles
+voorspellen en variatie en wanorde lijken er hier wel degelijk toe te
+doen. Ik moet je eerlijk zeggen dat ik samen met mijn vrouw vaak in de
+tuin werk. Ik weet (en mijn vrouw nog veel beter) dat tuinieren wel
+degelijk doelgerichte kanten kent. Je moet soms dingen doen om een half
+jaar later bepaalde resultaten te bereiken. Niet alles maar wel voor een
+groot deel. Bovendien heb je hele verschillende tuinen. Natuurlijke
+tuinen en tuinen waar precisie en controle wel van afspatten. Je hebt
+Engelse tuinen en je hebt Franse tuinen. Kinderen waarvan de
+ontwikkeling in gevaar komt om welke redenen dan ook, zullen ondersteund
+moeten worden. Over hoe dat het beste kan en waar we rekening mee moeten
+houden moeten we na blijven denken. Dan doen we ook in de tuin als
+planten niet tot hun recht komen. Dat zullen we doelgericht moeten
+blijven doen en ik neem aan dat je die gedachte deelt. Met het
+vergelijken van opvoeden met houtbewerken aan de ene kant en tuinieren
+aan de andere kant kan ik niet helemaal met jou meekomen. Misschien,
+denk ik zelf, had je voor jouw boek veel beter de metafoor van het lange
+en avontuurlijke reizen met het aankomen als doel kunnen nemen, zoals
+Kavafis dat zo treffend in zijn beroemde gedicht `Ithaka' beschrijft. De
+reis die vele jaren duurt maar rijk is aan wat je onderweg beleeft. Bij
+opvoeden gaat het om het aankomen maar veel meer nog om die mooie reis.
+Maar laat ik zelf ook de grote lijn van jouw boek in de gaten houden en
+het punt dat je maakt is terecht.
+
+Dank je wel,
+
+Grote groet, -Harrie
+
+Gopnik, A.(2016). \emph{The gardener and the carpenter. What the new
+science of child development tells us about the relationship between
+parents and children.} New York: Farrar, Strauss and Giroux, 320 pag.,
+€22,16.
+
+\hypertarget{we-zullen-het-zelf-moeten-doen}{%
+\chapter*{WE ZULLEN HET ZELF MOETEN
+DOEN}\label{we-zullen-het-zelf-moeten-doen}}
+\addcontentsline{toc}{chapter}{WE ZULLEN HET ZELF MOETEN DOEN}
+
+Amsterdam, april 2017
+
+Beste Paul Verhaeghe,
+
+De drievuldigheid of triniteit die we van het Christendom kennen paste
+Freud op de mens toe door hem te begrijpen vanuit id, ego en superego.
+Freud zette de mens met beide benen op de grond. Het id is, volgens
+Freud, de onbewuste laag van de persoonlijkheid, daar waar onze wensen
+en verlangens zitten. Aan de andere kant zit het superego, het geweten,
+het deel dat ons zegt wat mag en niet mag; een soort Japie als het ware,
+de groene krekel van Pinokkio. Tussen id en superego zit ego dat
+voortdurend bemiddelt tussen individuele wensen en verlangens en
+maatschappelijke regels. Die drievuldige interactie tussen het
+menselijke organisme en zijn omgeving zien we ook bij de Amerikaanse
+socioloog George Herbert Mead. Hij had het over het zelf dat
+communiceert met het ik, de pure vorm van het zelf, en het mij, de
+sociale vorm van het zelf. Jijzelf bent psycholoog die na Freud en Mead
+ook greep wil krijgen op de mens, maar nu die van honderd jaar later.
+Jij vraagt je al langer af waarom er tegenwoordig zoveel mensen zijn die
+tegen allerlei problemen aanlopen in het dagelijkse leven. Zij hebben
+met existentiële vragen te maken die samenhangen met maatschappelijke
+veranderingen die mensen ongelukkig maken. Anders dan bij Freud (waar
+jij een kenner van bent) en anders dan bij Mead (waarop jouw werk
+misschien wel veel mee lijkt) gaat het bij jou om identiteit, dat aan de
+bovenkant bemiddelt met autoriteit en aan de onderkant met intimiteit.
+Over identiteit en autoriteit schreef jij de afgelopen jaren
+achtereenvolgens twee boeken: \emph{Identiteit} (Verhaege 2012) en
+\emph{Autoriteit} (Verhaege 2015). Aan het derde boek,
+\emph{Intimiteit}, werk je op dit moment.
+
+Onlangs maakte je de tussenbalans op en sprak je in de Kohmstammlezing
+over \emph{Identiteit, Autoriteit, Onderwijs} (Verhaege, 2017). Ik zat
+bij die lezing ergens vooraan en luisterde vol interesse naar jouw
+verhaal. Daar vertelde je nog maar weer eens dat onze identiteit door de
+maatschappelijke veranderingen een andere invulling heeft gekregen.
+Identiteit wordt, zeker vandaag de dag, nogal eens opgevat als iets dat
+niet verandert en een harde kern heeft. Daarover denk jij terecht heel
+anders. Identiteit is veel minder eigen dan wij vaak denken en verbonden
+met een maatschappelijke omgeving waarbinnen wij ons ontwikkelen. Kan
+identiteit zelf steeds verschillend zijn, het proces naar
+identiteitsontwikkeling, waar je misschien wel meer over te zeggen hebt,
+is steeds hetzelfde. Dat zie jij als een constructieproces dat over de
+tijd invulling krijgt en waarbij tegelijk sprake is van identificatie en
+separatie, van optrekken aan en afzetten tegen, van meekrijgen en zelf
+bepalen. Identificatie (waar we veel over weten) verklaart vooral waarom
+bepaalde mensen uit dezelfde omgeving en cultuur meer op elkaar lijken.
+Separatie (waar we weinig over weten) laat de eigen en andere keuzes
+zien. Deze twee wisselen elkaar niet over de tijd af maar zijn
+voortdurend en altijd met elkaar in de weer. Omdat bij jou identiteit
+iets relationeels is en jij het steeds hebt over verhoudingen tot de
+ander, stel je identiteitsverhoudingen centraal. Voor jou zijn dat er
+vier: de verhouding tot jezelf, het andere geslacht, de andere-gelijke
+en de andere-autoriteit.\\
+In je hele werk ben je bijzonder kritisch over de neoliberale
+organisatie van onze samenleving met een economische ondertoon die zo
+bepalend is voor wie we zijn. Met jouw kritiek ben ik het eens, maar of
+dat door onze economische kijk op dingen komt vraag ik mij af. Je hebt
+economen van diverse pluimage en volgens mij heeft het veelmeer met onze
+eenzijdige instrumentele rationaliteit te maken, die inderdaad minder
+oog heeft voor het gemeenschapsgevoel en het individu centraal stelt met
+nadruk op competentie, concurrentie en eigen succes. In deze
+hyperindividuele, instrumentele samenleving moet je het maken. Lukt dat
+niet dan ben je een loser en voel je je schuldig. Natuurlijk kan niet
+iedereen aan die hoge eisen voldoen, dat zie jij dagelijks. Maar er zijn
+ook problemen waar je met identiteit alleen niet wegkomt en waarbij je
+misschien wel een laag hoger moet kijken. Veel problemen vandaag de dag
+hebben namelijk met gebrek aan gezag of autoriteit te maken, van
+internationaal terrorisme tot en met ouders en leerkrachten die niet
+meer goed weten hoe ze met hun kinderen om moeten gaan. Hier gaat het
+jou niet zozeer om existentiële problemen maar meer om problemen die te
+maken hebben met westerse waarden en normen. In jouw boeken en lezing
+ontrafel je eerst wat het is en waarom we hier tegenwoordig problemen
+mee hebben. Veel mensen denken dat die met de teloorgang van de westerse
+samenleving samenhangen, de vreemdeling die in ons leven is gekomen en
+het verdwijnen van een overzichtelijke samenleving. Veel mensen denken
+ook dat het allemaal iets van de laatste tien tot twintig jaar is.
+Terecht, denk ik, wijs jij er fijntjes op dat dat helemaal niet zo nieuw
+is. Vanaf de zeventiende eeuw al zijn we de autoriteit van Kerk en
+Koning in twijfel gaan trekken en is er een democratiseringsproces op
+gang gekomen dat op bepaalde momenten maatschappelijk zichtbaar wordt.
+Zo dachten we in de zestiger jaren dat we het maar beter zonder
+autoriteit af konden. Werd er toen een teveel aan autoriteit ervaren,
+nu, enkele decennia later, denken we weer dat er veel te weinig
+autoriteit is. Autoriteit kent volgens jou geen natuurlijke bron maar
+regelt, zoals je in het verlengde van Hannah Arendt schrijft, de
+verhoudingen tussen mensen op grond van vrijwillige onderwerping
+gebaseerd op een interne dwang. Bij jou gaat het daarbij om de
+verhouding tot de ander. Hiermee weten we nog steeds niet goed raad.
+Autoriteit verschilt zo fundamenteel van macht waarbij het gaat om iets
+wat van buiten wordt opgelegd, waaraan je bent onderworpen en dat je kan
+dwingen.
+
+Het vrijemarktmodel dat ons cultureel op allerlei manieren omringt,
+beïnvloedt het onderwijs natuurlijk sterk. Om succesvol te kunnen zijn
+is hier de nadruk komen te liggen op competenties en vaardigheden en
+gaat het om zelfmanagement en ondernemerschap. En natuurlijk krijgen we
+nu de leerlingen die we gevraagd hebben en die vanuit zichzelf vragen
+wat het onderwijs hen oplevert. Maar jij bent niet alleen kritisch over
+de eenzijdige identiteitsontwikkeling waar het onderwijs aan bijdraagt.
+Het onderwijs, eigenlijk de hele opvoeding, is ook nog eens verlegen
+geworden ten aanzien van zijn eigen handelen. Ouders en leerkrachten
+zijn onzeker geworden en voelen zich niet door het systeem gesteund.
+Autoriteit moet volgens jou opnieuw gegrond worden en onderlinge
+verhoudingen opnieuw gedefinieerd. Autoriteit kan niet meer van buiten
+en bovenaf opgelegd worden maar moet van onderop tot stand komen. Jij
+hebt veel op met autonome individuen die onderdeel uitmaken van een
+netwerk waar ze zelf in geloven en die niet naar boven en beneden kijken
+maar naar hoe anderen opzij reageren. Het onderwijs moet netwerken
+rondom de leerling vormen, waar docenten en bestuurders, ouders en de
+sociale omgeving deel van uitmaken. Scholen waar mensen naast elkaar
+staan en naar elkaar verwijzen. Veel hiervan zul jij (zullen wij) in de
+toekomst verder moeten uitwerken. Ook verdient de samenhang tussen
+identiteit en autoriteit, en straks ook nog intimiteit, veel van jouw
+aandacht. Maar je hebt gelijk dat we op zoek moeten naar nieuwe vormen
+van sociale organisatie die bovendien volume krijgen op verschillende
+niveaus van de samenleving. Maar hoe dit op schaal te brengen, vroeg is
+mij wel direct af. Duidelijk werd het mij wel dat er veel is te doen,
+dat drong die middag wel zachtjes tot mij door. Jouw boek `Autoriteit'
+eindigde er al mee en jouw lezing sloot je er ook mee af; woorden die
+mij heel erg aanspreken, waarmee je mij deelgenoot maakt van een lange,
+interessante traditie, mij wakker schudt in het kerkbankje en mij aan
+het werk zet: we zullen het zelf moeten doen.
+
+Dank je wel.
+
+Grote groet, -Harrie
+
+Verhaege, P.(2017). \emph{Identiteit, Autoriteit, Onderwijs}.
+Kohnstammlezing. Amsterdam: Vossiuspers UvA.
+
+Verhaege, P. (2015). \emph{Autoriteit}. Amsterdam\textbar{}Antwerpen: De
+Bezige Bij.
+
+Verhaege, P. (2012). \emph{Identiteit}. Amsterdam: De Bezige Bij.
+
+Jijzelf groeide op in de zestiger jaren, die gelukkige vijf minuten,
+zoals je dat zo mooi omschrijft, tussen de pil en AIDS. Jij maakte deel
+uit van die kritische generatie die nogal wat had op te merken over
+ouders die zelf vaak in de crisistijd waren opgevoed. Nu stel je, onder
+tussen zelf moeder en grootmoeder, dat jouw generatie (onze generatie)
+het er niet heel veel beter vanaf heeft gebracht. Volgens jou is de
+manier waarop we tegen opvoeden aankijken een verkeerde manier omdat die
+niet past bij wetenschappelijke inzichten die laten zien dat we het de
+kinderen veel meer op hun eigen manier moeten laten doen. Je hebt gelijk
+dat het ouders van tegenwoordig veel te weinig gaat om variatie, risico
+en innovatie en dat de opvoeding op die manier misschien wel te weinig
+aansluit bij het evolutionaire doel van de kindertijd. Kindertijd is
+vooral de tijd van exploratie, nieuwsgierigheid en spel en dat heb je
+nodig voorafgaand aan de fase van exploiteren, verantwoordelijkheid en
+werk. Wat er van elk kind wordt is onvoorspelbaar en uniek en het
+resultaat van vreemde combinaties van genen, ervaringen, cultuur en
+geluk. We moeten niet te snel een kind willen maken maar veelmeer
+liefde, veiligheid en stabiliteit bieden waarin kinderen op hun manier
+kunnen groeien. We kunnen nu één keer niet kinderen lerend maken, maar
+we kunnen ze wel laten leren. Ouderschap zie jij terecht als een
+belangrijk deel van de levenscyclus waarbij onze ouders ons het verleden
+gaven en wij op onze beurt de toekomst aan onze kinderen doorgeven. Meer
+dan bij welk ander levend soort ook zijn kinderen bij ons mensen lange
+tijd afhankelijk van opvoeders. Zelfs in vroegere tijden waren ze niet
+voor hun vijftiende zelfstandig. Kinderen waren daarbij niet alleen
+afhankelijk van hun eigen ouders maar ook van `allo-ouders', het netwerk
+van grootouders, ooms, tantes, neven, nichten en vrienden. Alleen komen
+we als soort nergens en we ontwikkelen onszelf alleen in zo'n netwerk
+van zorg en liefde. Lange tijd groeiden kinderen op in uitgebreide
+families maar vandaag de dag is dat netwerk veel kleiner geworden. De
+opvoedingstaak ligt nu meer dan ooit bij de ouders, die zelf lange tijd
+naar school zijn geweest en al enige tijd werken voordat ze ouder zijn
+geworden. Op school en werk hebben ze zich dat doelgerichte, met de
+nadruk op kennis en competenties, eigen gemaakt. Op school en werk leidt
+dat natuurlijk tot succes. Maar in de opvoeding thuis is dat niet zozeer
+het geval. Ook lijkt het er op dat ouders van nu alleen maar oog voor
+het detail hebben. Ze stellen zichzelf vragen als hoe lang moeten ze hun
+kinderen moeten laten huilen, of de computer wel goed voor ze is en of
+ze wel lang genoeg huiswerk maken. De grote lijn lijken ze uit het oog
+te zijn verloren.
+
+Van jouw boek heb ik veel geleerd. Als ontwikkelingspsycholoog bied je
+de lezer nieuwe inzichten, als filosoof lever je interessante dilemma's
+en als ouder/grootouder laat je zien met welke concrete situaties je te
+maken hebt gehad. Opvoeden tegenwoordig, zo schrijf jij, lijkt misschien
+wel het meest op het werk van een meubelmaker. Er is ruim aandacht voor
+het juiste materiaal waarmee gewerkt wordt, voor de juiste bewerking en
+ouders willen net als de meubelmaker ervoor zorgen dat het juiste
+product wordt afgemaakt. In het proces gaat het om precisie en controle
+en chaos en verschil moeten zoveel mogelijk worden voorkomen. Maar
+jijzelf hebt veel op met het idee dat opvoeden als het zorgen voor een
+tuin is. Want als tuinman moet je de tuin beschermen en planten ruimte
+geven waar nodig. Je moet er veel voor doen maar het onverwachte is hier
+veel belangrijker. Net als de tuinman kun je als ouder niet alles
+voorspellen en variatie en wanorde lijken er hier wel degelijk toe te
+doen. Ik moet je eerlijk zeggen dat ik samen met mijn vrouw vaak in de
+tuin werk. Ik weet (en mijn vrouw nog veel beter) dat tuinieren wel
+degelijk doelgerichte kanten kent. Je moet soms dingen doen om een half
+jaar later bepaalde resultaten te bereiken. Niet alles maar wel voor een
+groot deel. Bovendien heb je hele verschillende tuinen. Natuurlijke
+tuinen en tuinen waar precisie en controle wel van afspatten. Je hebt
+Engelse tuinen en je hebt Franse tuinen. Kinderen waarvan de
+ontwikkeling in gevaar komt om welke redenen dan ook, zullen ondersteund
+moeten worden. Over hoe dat het beste kan en waar we rekening mee moeten
+houden moeten we na blijven denken. Dan doen we ook in de tuin als
+planten niet tot hun recht komen. Dat zullen we doelgericht moeten
+blijven doen en ik neem aan dat je die gedachte deelt. Met het
+vergelijken van opvoeden met houtbewerken aan de ene kant en tuinieren
+aan de andere kant kan ik niet helemaal met jou meekomen. Misschien,
+denk ik zelf, had je voor jouw boek veel beter de metafoor van het lange
+en avontuurlijke reizen met het aankomen als doel kunnen nemen, zoals
+Kavafis dat zo treffend in zijn beroemde gedicht `Ithaka' beschrijft. De
+reis die vele jaren duurt maar rijk is aan wat je onderweg beleeft. Bij
+opvoeden gaat het om het aankomen maar veel meer nog om die mooie reis.
+Maar laat ik zelf ook de grote lijn van jouw boek in de gaten houden en
+het punt dat je maakt is terecht.
+
+Dank je wel,
+
+Grote groet, -Harrie
+
+Gopnik, A.(2016). \emph{The gardener and the carpenter. What the new
+science of child development tells us about the relationship between
+parents and children.} New York: Farrar, Strauss and Giroux, 320 pag.,
+€22,16.
+
+\bibliography{book.bib,packages.bib}
+
+
+\end{document}
