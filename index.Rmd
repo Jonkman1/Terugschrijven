@@ -28,4 +28,7 @@ knitr::write_bib(c(
 ), 'packages.bib')
 ```
 
-Dit is het begin
+Beste lezer,
+
+
+Dit is het begin van mijn opensource boek
