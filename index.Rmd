@@ -31,4 +31,4 @@ knitr::write_bib(c(
 Beste lezer,
 
 
-Dit is het begin van mijn opensource boek. Hier schrijf ik nog een eerste brief.
+Dit is het begin van mijn opensource boek. Hier schrijf ik nog een eerste brief, over kennis, ontwikkeling en democratie.
