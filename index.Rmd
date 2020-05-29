@@ -8,7 +8,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "Dit is mijn boek **Terugschrijven** dat ik met R Markdown en **bookdown** (https://github.com/rstudio/bookdown) zal publiceren. Dit is een bewerking van mijn blog Terugschrijven dat je op mijn website kunt vinden https://www.harriejonkman.nl."
+description: "Dit is mijn boek **Terugschrijven** waar ik op dit moment aan werk en dat eind 2020 zal verschijnen. Het zijn boeken over Kennis, ontwikkeling en democratie die ik recent gelezen heb en die volgens mij interessant zijn. De schrijver van het boek schrijf ik in briefvorm rechtsteeks aan. Ik laat je over mijn schouder meekijken en de pakketten **RMarkdown** en **bookdown** (https://github.com/rstudio/bookdown) helpen mij hierbij. Dit is een bewerking van mijn blog Terugschrijven dat je ook op mijn website kunt vinden https://www.harriejonkman.nl."
 ---
 
  
@@ -31,4 +31,4 @@ knitr::write_bib(c(
 Beste lezer,
 
 
-Dit is het begin van mijn opensource boek. Hier schrijf ik nog een eerste brief, over kennis, ontwikkeling en democratie.
+Dit is mijn boek **Terugschrijven** waar ik op dit moment aan werk en dat eind 2020 zal verschijnen. Het zijn boeken over Kennis, ontwikkeling en democratie die ik recent gelezen heb en die volgens mij interessant zijn. De schrijver van het boek schrijf ik in briefvorm rechtsteeks aan. Ik laat je over mijn schouder meekijken en de pakketten **RMarkdown** en **bookdown** (https://github.com/rstudio/bookdown) helpen mij hierbij. Dit is een bewerking van mijn blog Terugschrijven dat je ook op mijn website kunt vinden https://www.harriejonkman.nl.
